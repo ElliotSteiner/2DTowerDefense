@@ -19,7 +19,13 @@ public class EnemyMovement : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, wpoints.waypoints[waypointIndex].position) < 0.1f) {
-            waypointIndex++;
+            if (waypointIndex < wpoints.waypoints.Length - 1)
+            {
+                waypointIndex++;
+            }
+            else {
+                Destroy(gameObject);
+            }
         }
     }
 }

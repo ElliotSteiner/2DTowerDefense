@@ -12,18 +12,15 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        Debug.Log("Kira");
     }
 
     void TakeDamage(int amount) {
+        Debug.Log("potato");
         currentHealth -= amount;
             if (currentHealth <= 0) {
             currentHealth = 0;
              }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        TakeDamage(1);
-        
     }
 
     // Update is called once per frame
@@ -31,4 +28,14 @@ public class Health : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("Ominous");
+        if (collision.tag == "MinorEnemy") {
+            TakeDamage(1);
+            Debug.Log(currentHealth);
+        }
+    }
+
+   
 }
