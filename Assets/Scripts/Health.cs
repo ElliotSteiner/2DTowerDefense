@@ -12,26 +12,20 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        Debug.Log("Kira");
+        Debug.Log(currentHealth);
     }
 
     void TakeDamage(int amount) {
-        Debug.Log("potato");
         currentHealth -= amount;
             if (currentHealth <= 0) {
             currentHealth = 0;
              }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Note: In order for the health system to work, the enemy must be tagged correctly and have a rigidbody that is stimulated and dynamic
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Ominous");
-        if (collision.tag == "MinorEnemy") {
+        if (collision.gameObject.tag == "MinorEnemy") {
             TakeDamage(1);
             Debug.Log(currentHealth);
         }
