@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -74,9 +75,12 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1) //This is where the looping happens
         {
-            return; //If I put return here then it loops wave 3 forever
-           // nextWave = 0;
-           // Debug.Log("Waves Looping...");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            // This is probably going to break the game for now because the testing
+            // Level this is in right now isn't a part of the build index.
+
+            // It should work once I put this stuff into the actual level 1 if there's
+            // a level 2 in place
         }
         else { 
             nextWave++;
