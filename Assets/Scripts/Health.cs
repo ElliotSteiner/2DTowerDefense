@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        Debug.Log(currentHealth);
+        Debug.Log("Your Health: " + currentHealth);
     }
 
     void TakeDamage(int amount) {
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "MinorEnemy") {
             TakeDamage(1);
-            Debug.Log(currentHealth);
+            Debug.Log("Your Health: " + currentHealth);
         }
     }
 

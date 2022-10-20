@@ -407,7 +407,7 @@ MonoBehaviour:
     enemy: {fileID: 7042926129845492330, guid: 8d2500f622d2ff0408713d031e683fc9, type: 3}
     count: 8
     rate: 1
-  spawnPointOne: {fileID: 0}
+  spawnPointOne: {fileID: 961514602}
   timeBetweenWaves: 5
   waveCountdown: 0
 --- !u!1 &961514601
@@ -419,6 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961514602}
+  - component: {fileID: 961514603}
   m_Layer: 0
   m_Name: SpawnPointOne
   m_TagString: Untagged
@@ -441,6 +442,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961514603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961514601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cbfb0f02323014188d490fb81e85cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983734412
 GameObject:
   m_ObjectHideFlags: 0
