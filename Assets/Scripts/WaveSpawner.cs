@@ -73,14 +73,9 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
-        if (nextWave + 1 > waves.Length - 1) //This is where the looping happens
+        if (nextWave + 1 > waves.Length - 1)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            // This is probably going to break the game for now because the testing
-            // Level this is in right now isn't a part of the build index.
-
-            // It should work once I put this stuff into the actual level 1 if there's
-            // a level 2 in place
+            SceneManager.LoadScene(sceneBuildIndex: 2);
         }
         else { 
             nextWave++;
@@ -93,7 +88,7 @@ public class WaveSpawner : MonoBehaviour
             if (searchCountdown <= 0f)
             {
                 searchCountdown = 1f;
-                if (GameObject.FindGameObjectWithTag("MinorEnemy") == null)
+                if (GameObject.FindGameObjectWithTag("MinorEnemy") == null && GameObject.FindGameObjectWithTag("MediumEnemy") == null)
                 { //You might have to make an if statement for each enemy tag
                     return false;
                 }
