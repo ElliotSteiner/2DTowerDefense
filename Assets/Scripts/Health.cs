@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
 
+    public TMP_Text healthText;
     public static int maxHealth = 20;
     public static int currentHealth;
 
@@ -13,6 +16,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        healthText.text = currentHealth.ToString();
         Debug.Log("Your Health: " + currentHealth);
     }
 
@@ -30,10 +34,12 @@ public class Health : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "MinorEnemy") {
             TakeDamage(1);
+            healthText.text = currentHealth.ToString();
             Debug.Log("Your Health: " + currentHealth);
         }
         if (collision.gameObject.tag == "MediumEnemy") {
             TakeDamage(2);
+            healthText.text = currentHealth.ToString();
             Debug.Log("Your Health: " + currentHealth);
         }
     }
