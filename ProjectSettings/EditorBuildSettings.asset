@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: a735a88c03ac49b4dbfa261ae092a4d7
+  - enabled: 1
+    path: Assets/Scenes/You Failed Screen.unity
+    guid: ba1ac37b83d16914aa3cf56ad4831c0c
   m_configObjects: {}
