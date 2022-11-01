@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -29,8 +31,11 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
 
+   // public TMP_Text newWaveTimer;
+
     void Start()
     {
+       // newWaveTimer.text = waveCountdown.ToString();
         waveCountdown = timeBetweenWaves;
     }
 
@@ -64,6 +69,7 @@ public class WaveSpawner : MonoBehaviour
             else {
                 waveCountdown = 0;
             }
+           // newWaveTimer.text = waveCountdown.ToString();
         }
     }
 

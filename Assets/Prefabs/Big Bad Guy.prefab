@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1734070597252412735}
   - component: {fileID: 7728576848847731768}
   - component: {fileID: 2534870600527820342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Big Bad Guy
   m_TagString: MediumEnemy
   m_Icon: {fileID: 0}
