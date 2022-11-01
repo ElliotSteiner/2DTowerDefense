@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-   
+
+    [SerializeField]
+    float moveSpeed = 20f;
+
 
     public static void Create(Vector3 spawnPosition, Vector3 targetPosition)
     {
@@ -25,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         Vector3 moveDir = (targetPosition - transform.position).normalized;
 
-        float moveSpeed = 20f;
+  
 
         transform.position += moveDir * moveSpeed * Time.deltaTime;
 
