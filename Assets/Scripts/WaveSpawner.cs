@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -71,7 +72,8 @@ public class WaveSpawner : MonoBehaviour
                 waveCountdown = 0;
             }
 
-        newWaveTimer.text = waveCountdown.ToString();
+        newWaveTimer.text = Math.Round(waveCountdown).ToString();
+            
         if (waveCountdown == 0)
             {
                 newWaveTimer.text = " ";
