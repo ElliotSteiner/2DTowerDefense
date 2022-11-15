@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -29,8 +32,12 @@ public class WaveSpawner : MonoBehaviour
 
     private SpawnState state = SpawnState.COUNTING;
 
+   public TMP_Text newWaveTimer;
+   public Button waveButton;
+
     void Start()
     {
+        newWaveTimer.text = waveCountdown.ToString();
         waveCountdown = timeBetweenWaves;
     }
 
@@ -63,6 +70,13 @@ public class WaveSpawner : MonoBehaviour
             }
             else {
                 waveCountdown = 0;
+            }
+
+        newWaveTimer.text = Math.Round(waveCountdown).ToString();
+            
+        if (waveCountdown == 0)
+            {
+                newWaveTimer.text = " ";
             }
         }
     }
@@ -115,5 +129,12 @@ public class WaveSpawner : MonoBehaviour
         Transform _sp = spawnPointOne;   
         Instantiate(_enemy, _sp.position, _sp.rotation);
         }
+
+      public void OnButtonPress()
+    {
+        waveCountdown = 0;
+        newWaveTimer.text = " ";
+
+    }  
 
 }
