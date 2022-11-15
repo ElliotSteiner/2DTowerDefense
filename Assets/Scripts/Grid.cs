@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using Utils;
 
 namespace Utils
 {
     public class Grid : MonoBehaviour
     {
+
+        private MapManager mapManager;
+
+
+
+
         [SerializeField]
         private float xAlign;
         [SerializeField]
@@ -15,6 +22,9 @@ namespace Utils
         public int gridHeight;
         [SerializeField]
         public int gridWidth;
+
+
+        private Tilemap map;
 
         private int width;
         private int height;
@@ -67,105 +77,132 @@ namespace Utils
         }
         private void Awake()
         {
+            mapManager = FindObjectOfType<MapManager>();
+
             grid = new Grid(20, 10, 1f, new Vector3(-10, -5));
             gridValues = new int[gridWidth, gridHeight];
-            pathChecker();
-            setGrid();
+            //pathChecker();
+            //setGrid();
         }
 
-        private void pathChecker()
-        {
-            for (int y = 0; y < gridHeight; y++)
-            {
-                for (int x = 0; x < gridWidth; x++)
-                {
+        //private void pathChecker()
+        //{
+        //   for (int y = 0; y < gridHeight; y++)
+        //  {
+        //     for (int x = 0; x < gridWidth; x++)
+        //    {
 
-                }
-            }
-        }
+        //}
+        //}
+        //}
         //grid goes from -9, -5 to 8, 4
-        private void setGrid()
-        {
-            for (int y = 0; y < gridHeight; y++)
-            {
-                for (int x = 0; x < gridWidth; x++)
-                {
-                    Debug.Log(x + " " + y);
-                    gridValues[x, y] = 0;
-                }
-            }
-        }
+        // private void setGrid()
+        //{
+        //   for (int y = 0; y < gridHeight; y++)
+        //  {
+        //     for (int x = 0; x < gridWidth; x++)
+        //    {
+        //       Debug.Log(x + " " + y);
+        //      gridValues[x, y] = 0;
+        // }
+        //}
+        //}
 
         private void Update()
         {
             if (Input.GetMouseButtonDown(1))
             {
-                int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
-                int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
-                if (gridValues[buildPosX, buildPosY] == 0)
+
+                if (mapManager.GetTileType() == false)
                 {
-
-                    SpawnTower(buildPosX, buildPosY);
-
+                    print("hi");
+                    SpawnTower();
+                    
                 }
+
             }
         }
 
-        private float GetBuildPosX()
+        public void ifBuild(bool isPath)
         {
-            Vector3 buildPosition = Testing.GetMouseWorldPosition();
-            float buildPositionX = ValidateWorldGridPosXY(buildPosition, 0);
-            return buildPositionX;
-        }
-
-        private float GetBuildPosY()
-        {
-            Vector3 buildPosition = Testing.GetMouseWorldPosition();
-            float buildPositionY = ValidateWorldGridPosXY(buildPosition, 1);
-            return buildPositionY;
-        }
-
-        private void SpawnTower(int buildPosX, int buildPosY)
-        {
-            int buildX = buildPosX;
-            int buildY = buildPosY;
-            gridValues[buildX, buildY] = 1;
-            Vector3 spawnPosition = Testing.GetMouseWorldPosition();
-            spawnPosition = ValidateWorldGridPosition(spawnPosition);
-            spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
-
-            Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
-        }
-
-        private Vector3 ValidateWorldGridPosition(Vector3 position)
-        {
-            grid.GetXY(position, out int x, out int y);
-            return grid.GetWorldPosition(x, y);
-
-        }
-
-        private float ValidateWorldGridPosXY(Vector3 position, int returnNum)
-        {
-            grid.GetXY(position, out int x, out int y);
-            Vector3 WorldPos = grid.GetWorldPosition(x, y);
-            float worldPosX = WorldPos.x;
-            float worldPosY = WorldPos.y;
-            if (returnNum == 0)
+            if (isPath == false)
             {
-                return worldPosX;
+
+                SpawnTower();
+
             }
-            else
+        }
+
+        public Vector3 GetBuildPos()
             {
-                return worldPosY;
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+            print(buildPosX + "xy " + buildPosY);
+            Vector3 buildPosition = Testing.GetMouseWorldPosition();
+            buildPosition = ValidateWorldGridPosition(buildPosition);
+            Debug.Log(buildPosition);
+            return buildPosition;
+        }
+
+            public float GetBuildPosX()
+            {
+                Vector3 buildPosition = Testing.GetMouseWorldPosition();
+                float buildPositionX = ValidateWorldGridPosXY(buildPosition, 0);
+                return buildPositionX;
             }
 
-        }
+            public float GetBuildPosY()
+            {
+                Vector3 buildPosition = Testing.GetMouseWorldPosition();
+                float buildPositionY = ValidateWorldGridPosXY(buildPosition, 1);
+                return buildPositionY;
+            }
 
-        public float GetCellSize()
-        {
-            return cellSize;
-        }
+            private void SpawnTower()
+            {
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+            print(buildPosX + "xy " + buildPosY);
+
+            gridValues[buildPosX, buildPosY] = 1;
+                Vector3 spawnPosition = Testing.GetMouseWorldPosition();
+                spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+
+                Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
+            }
+
+            private Vector3 ValidateWorldGridPosition(Vector3 position)
+            {
+                grid.GetXY(position, out int x, out int y);
+                return grid.GetWorldPosition(x, y);
+
+            }
+
+            public float ValidateWorldGridPosXY(Vector3 position, int returnNum)
+            {
+                grid.GetXY(position, out int x, out int y);
+                Vector3 WorldPos = grid.GetWorldPosition(x, y);
+                float worldPosX = WorldPos.x;
+                float worldPosY = WorldPos.y;
+                if (returnNum == 0)
+                {
+                    return worldPosX;
+                }
+                else
+                {
+                    return worldPosY;
+                }
+
+            }
+
+            public float GetCellSize()
+            {
+                return cellSize;
+            }
 
 
+        
     }
 }
