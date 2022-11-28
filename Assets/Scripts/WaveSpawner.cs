@@ -12,6 +12,10 @@ namespace Utils
     public class WaveSpawner : MonoBehaviour
     {
 
+
+        
+
+
         private enum SpawnState { SPAWNING, FIGHTING, COUNTING };
 
         [System.Serializable]
@@ -25,6 +29,8 @@ namespace Utils
 
         public Wave[] waves;
         private int nextWave = 0;
+
+       
 
         public Transform spawnPointOne = GetSpawnPoint.spawnPoint;
 
@@ -75,6 +81,8 @@ namespace Utils
         {
             //enemyList.Add(this);
         }
+
+        
 
 
         void Update()
