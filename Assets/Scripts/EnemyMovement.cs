@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -9,6 +10,36 @@ public class EnemyMovement : MonoBehaviour
 
     private int waypointIndex;
 
+    public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
+
+    public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
+    {
+        EnemyMovement closest = null;
+        foreach (EnemyMovement enemy in enemyList)
+        {
+            //if (enemy.IsAlive()) continue;
+            if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
+            {
+                if (closest == null)
+                {
+                    closest = enemy;
+                }
+                else
+                {
+                    if (Vector3.Distance(position, enemy.GetPosition()) < Vector3.Distance(position, closest.GetPosition()))
+                    {
+                        closest = enemy;
+                    }
+                }
+            }
+        }
+        return closest;
+    }
+
+    void Awake()
+    {
+        enemyList.Add(this);
+    }
     void Start()
     {
         wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
@@ -27,5 +58,10 @@ public class EnemyMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5287543295354773929}
   - component: {fileID: 2036275864170123197}
-  - component: {fileID: -1889716010341435870}
+  - component: {fileID: -4533513502947159093}
   m_Layer: 0
   m_Name: pfProjectile
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1889716010341435870
+--- !u!114 &-4533513502947159093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b942735d01c6343bd60b73bb4eb6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 10

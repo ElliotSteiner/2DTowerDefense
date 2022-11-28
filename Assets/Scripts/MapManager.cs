@@ -64,7 +64,6 @@ namespace Utils
 
                 bool path = dataFromTiles[clickedTile].path;
 
-                print("Is tile a path? " + path);
 
 
             }
@@ -82,7 +81,6 @@ namespace Utils
             bool path = dataFromTiles[tile].path;
 
 
-            print(path);
             return path;
         }
 

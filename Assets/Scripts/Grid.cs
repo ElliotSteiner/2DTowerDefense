@@ -115,7 +115,6 @@ namespace Utils
 
                 if (mapManager.GetTileType() == false)
                 {
-                    print("hi");
                     SpawnTower();
                     
                 }
@@ -139,7 +138,7 @@ namespace Utils
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
             print(buildPosX + "xy " + buildPosY);
-            Vector3 buildPosition = Testing.GetMouseWorldPosition();
+            Vector3 buildPosition = TowerPosition.GetMouseWorldPosition();
             buildPosition = ValidateWorldGridPosition(buildPosition);
             Debug.Log(buildPosition);
             return buildPosition;
@@ -147,14 +146,14 @@ namespace Utils
 
             public float GetBuildPosX()
             {
-                Vector3 buildPosition = Testing.GetMouseWorldPosition();
+                Vector3 buildPosition = TowerPosition.GetMouseWorldPosition();
                 float buildPositionX = ValidateWorldGridPosXY(buildPosition, 0);
                 return buildPositionX;
             }
 
             public float GetBuildPosY()
             {
-                Vector3 buildPosition = Testing.GetMouseWorldPosition();
+                Vector3 buildPosition = TowerPosition.GetMouseWorldPosition();
                 float buildPositionY = ValidateWorldGridPosXY(buildPosition, 1);
                 return buildPositionY;
             }
@@ -163,14 +162,16 @@ namespace Utils
             {
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
-            print(buildPosX + "xy " + buildPosY);
 
-            gridValues[buildPosX, buildPosY] = 1;
-                Vector3 spawnPosition = Testing.GetMouseWorldPosition();
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                gridValues[buildPosX, buildPosY] = 1;
+                Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
                 spawnPosition = ValidateWorldGridPosition(spawnPosition);
                 spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
 
                 Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
+            }
             }
 
             private Vector3 ValidateWorldGridPosition(Vector3 position)
@@ -204,5 +205,31 @@ namespace Utils
 
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
