@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+
     private Waypoints wpoints;
 
     private int waypointIndex;
