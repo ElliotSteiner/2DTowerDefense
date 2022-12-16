@@ -54,8 +54,8 @@ namespace Utils
                 for (int y = 0; y < gridArray.GetLength(1); y++)
                 {
                     //debugTextArray[x, y] = CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, 3, Color.white, TextAnchor.MiddleCenter);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y+1), Color.white, 100f);
+                    Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x+1, y), Color.white, 100f);
 
                 }
             }
@@ -83,6 +83,7 @@ namespace Utils
             gridValues = new int[gridWidth, gridHeight];
             //pathChecker();
             //setGrid();
+
         }
 
         //private void pathChecker()
@@ -115,6 +116,7 @@ namespace Utils
 
                 if (mapManager.GetTileType() == false)
                 {
+                    Debug.Log("SPAWN");
                     SpawnTower();
                     
                 }
@@ -126,7 +128,7 @@ namespace Utils
         {
             if (isPath == false)
             {
-
+                Debug.Log("GRASS");
                 SpawnTower();
 
             }
@@ -171,6 +173,10 @@ namespace Utils
                 spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
 
                 Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
             }
             }
 

@@ -6,16 +6,22 @@ using Utils;
 public class Tower : MonoBehaviour
 {
 
-    private Vector3 projectileShootFromPosition;
+   
+    [SerializeField]
+    private int damageAmount;
+    [SerializeField]
     private float range;
+
+    private Vector3 projectileShootFromPosition;
+    
     private float shootTimerMax;
     private float shootTimer;
 
     private void Awake()
     {
         projectileShootFromPosition = transform.Find("ProjectileShootFromPosition").position;
-        range = 10f;
-        shootTimerMax = .5f;
+        shootTimerMax = .4f;
+        //range = 5f;
     }
 
     private void Update()
@@ -34,13 +40,40 @@ public class Tower : MonoBehaviour
             EnemyMovement enemy = GetClosestEnemy();
             if (enemy != null)
             {
-                Projectile.Create(projectileShootFromPosition, enemy);
+                Debug.Log("Enemy in range");
+                Projectile.Create(projectileShootFromPosition, enemy, damageAmount);
             }
+           
         }
+
     }
 
     private EnemyMovement GetClosestEnemy()
     {
        return EnemyMovement.GetClosestEnemy(transform.position, range);
+    }
+
+    public float GetRange()
+    {
+        return range;
+    }
+
+    public void upgradeRange()
+    {
+        range += (range / 6);
+    }
+
+    public void upgradeDamage()
+    {
+        damageAmount += 5;
+    }
+
+    private void OnMouseEnter()
+    {
+        UpgradeOverlay.Show_Static(this);
+    }
+    private void OnMouseExit()
+    {
+        UpgradeOverlay.Hide_Static();
     }
 }

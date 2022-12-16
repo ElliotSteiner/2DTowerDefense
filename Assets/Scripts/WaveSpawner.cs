@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Utils;
 
 namespace Utils
 {
 
     public class WaveSpawner : MonoBehaviour
     {
-
+        EnemyHealth healthSystem;
 
         
 
@@ -148,7 +149,7 @@ namespace Utils
             if (searchCountdown <= 0f)
             {
                 searchCountdown = 1f;
-                if (GameObject.FindGameObjectWithTag("MinorEnemy") == null && GameObject.FindGameObjectWithTag("MediumEnemy") == null)
+                if (GameObject.FindGameObjectWithTag("Enemy") == null)
                 { //You might have to make an if statement for each enemy tag
                     return false;
                 }

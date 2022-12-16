@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utils
-{
-    public class EnemyHealth
+//namespace Utils
+//{
+    public class EnemyHealth : MonoBehaviour
     {
-        private int health;
+        public static int health;
         private int healthMax;
 
 
@@ -16,6 +16,16 @@ namespace Utils
             health = healthMax;
         }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return healthMax;
+    }
+
 
         public void Damage(int damage)
         {
@@ -24,12 +34,10 @@ namespace Utils
             {
                 health = 0;
             }
+          
         }
 
-        public bool IsDead()
-        {
-            return health <= 0;
-        }
+        
 
         public void SetHealthMax(int healthMax, bool fullHealth)
         {
@@ -37,5 +45,10 @@ namespace Utils
             if (fullHealth) health = healthMax;
 
         }
+
+        public bool IsDead()
+        {
+            return health <=0;
+        }
     }
-}
+//}

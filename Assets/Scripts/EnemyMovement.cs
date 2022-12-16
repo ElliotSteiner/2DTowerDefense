@@ -6,11 +6,19 @@ using Utils;
 public class EnemyMovement : MonoBehaviour
 {
 
+
+
+   
+
+    [SerializeField]
+    int maxHealth;
+
     public enum EnemyType
     {
         Minor,
         Medium,
     }
+
 
 
     public float speed;
@@ -25,11 +33,20 @@ public class EnemyMovement : MonoBehaviour
     public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
     {
         EnemyMovement closest = null;
+       
         foreach (EnemyMovement enemy in enemyList)
         {
-            if (enemy.IsDead()) continue;
+            
+            if (enemy.IsDead())
+            {
+                Debug.Log(enemy + " " + enemy.IsDead());
+
+                continue;
+            }
+            
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
+                Debug.Log("IN RANGE");
                 if (closest == null)
                 {
                     closest = enemy;
@@ -43,13 +60,24 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+
         return closest;
     }
+
+    
 
     void Awake()
     {
         enemyList.Add(this);
+        Debug.Log("Added to List");
         healthSystem = new EnemyHealth(100);
+        SetEnemyType();
+        
+
+    }
+
+    private void SetEnemyType()
+    {
 
     }
 
@@ -58,21 +86,39 @@ public class EnemyMovement : MonoBehaviour
         return healthSystem.IsDead();
     }
 
-    private void SetEnemyType(EnemyType enemyType)
-    {
-        Material material;
+    //private void SetEnemyType(EnemyType enemyType)
+    //{
+    //    Material material;
 
-        switch (enemyType)
+    //    switch (enemyType)
+    //    {
+    //        default:
+    //        case EnemyType.Minor:
+    //            material = GameAssets.i.m_EnemyMinor;
+    //            healthSystem.SetHealthMax(50, true);
+    //            break;
+    //        case EnemyType.Medium:
+    //            material = GameAssets.i.m_EnemyMedium;
+    //            healthSystem.SetHealthMax(80, true);
+    //            break;
+    //    }
+    //}
+
+    public void Damage(int damageAmount)
+    {
+        Debug.Log(healthSystem.GetHealth());
+        healthSystem.Damage(damageAmount);
+        if (IsDead())
         {
-            default:
-            case EnemyType.Minor:
-                material = GameAssets.i.m_EnemyMinor;
-                healthSystem.SetHealthMax(80, true);
-                break;
-            case EnemyType.Medium:
-                material = GameAssets.i.m_EnemyMedium;
-                healthSystem.SetHealthMax(80, true);
-                break;
+            foreach(EnemyMovement enemy in enemyList)
+            {
+               // Debug.Log("LIST: "+ enemy.ToString());
+            }
+            Destroy(gameObject);
+            foreach (EnemyMovement enemy in enemyList)
+            {
+               // Debug.Log("NEW LIST: " + enemy.ToString());
+            }
         }
     }
 
@@ -94,6 +140,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else {
                 Destroy(gameObject);
+                
             }
         }
     }

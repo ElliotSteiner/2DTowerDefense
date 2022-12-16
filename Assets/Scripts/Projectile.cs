@@ -9,28 +9,30 @@ public class Projectile : MonoBehaviour
     float moveSpeed = 10f;
 
 
-    public static void Create(Vector3 spawnPosition, EnemyMovement enemy)
+    public static void Create(Vector3 spawnPosition, EnemyMovement enemy, int damageAmount)
     {
        Transform arrowTransform = Instantiate(GameAssets.i.pfProjectile, spawnPosition, Quaternion.identity);
 
         Projectile projectile = arrowTransform.GetComponent<Projectile>();
-        projectile.Setup(enemy);
+        projectile.Setup(enemy, damageAmount);
     }
 
     private EnemyMovement enemy;
+    private int damageAmount;
 
 
 
     private Vector3 targetPosition;
 
-    private void Setup(EnemyMovement enemy )
+    private void Setup(EnemyMovement enemy, int damageAmount)
     {
         this.enemy = enemy;
+        this.damageAmount = damageAmount;
     }
     
     private void Update()
     {
-        if (enemy == null){
+        if (enemy == null || enemy.IsDead()){
             Destroy(gameObject);
             return;
         }
@@ -45,6 +47,7 @@ public class Projectile : MonoBehaviour
         float destroySelfDistance = 1f;
         if (Vector3.Distance(transform.position, targetPosition) < destroySelfDistance)
         {
+            enemy.Damage(damageAmount);
             Destroy(gameObject);
         }
     }

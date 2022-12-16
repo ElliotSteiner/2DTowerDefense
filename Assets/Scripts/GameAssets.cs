@@ -18,6 +18,6 @@ public class GameAssets : MonoBehaviour
     public Transform pfProjectile;
     public Transform pfTower;
 
-    public Material m_EnemyMinor;
-    public Material m_EnemyMedium;
+    //public Transform pf_EnemyMinor;
+    //public Transform pf_EnemyMedium;
 }
