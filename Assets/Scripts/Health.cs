@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
     public static int maxHealth = 20;
     public static int currentHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;

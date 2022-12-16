@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Utils;
 
 public class EnemyMovement : MonoBehaviour
@@ -22,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     public float speed;
+
     private Waypoints wpoints;
 
     private EnemyHealth healthSystem;
