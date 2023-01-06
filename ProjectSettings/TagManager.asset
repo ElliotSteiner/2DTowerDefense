@@ -8,6 +8,8 @@ TagManager:
   - MinorEnemy
   - MediumEnemy
   - Enemy
+  - GameMasterObject
+  - Projectile
   layers:
   - Default
   - TransparentFX

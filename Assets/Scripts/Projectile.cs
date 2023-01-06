@@ -47,9 +47,24 @@ public class Projectile : MonoBehaviour
         float destroySelfDistance = 1f;
         if (Vector3.Distance(transform.position, targetPosition) < destroySelfDistance)
         {
-            enemy.Damage(damageAmount);
-            Destroy(gameObject);
+         //   enemy.Damage(damageAmount);
+            //Destroy(gameObject);
         }
+
+        
     }
 
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+
+            .Damage(damageAmount);
+            Destroy(gameObject);
+
+        }
+        
+    }
 }

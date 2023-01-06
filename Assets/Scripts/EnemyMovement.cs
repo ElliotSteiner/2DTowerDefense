@@ -1,15 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
 
+    public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
+
+    public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
+    {
+        EnemyMovement closest = null;
+
+        foreach (EnemyMovement enemy in enemyList)
+        {
+
+            if (enemy.IsDead()) continue;
+
+            if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
+            {
+                //Debug.Log("IN RANGE");
+                if (closest == null)
+                {
+                    closest = enemy;
+                }
+                else
+                {
+                    if (Vector3.Distance(position, enemy.GetPosition()) < Vector3.Distance(position, closest.GetPosition()))
+                    {
+                        closest = enemy;
+                    }
+                }
+            }
+        }
+
+        return closest;
+    }
 
 
-   
 
     [SerializeField]
     int maxHealth;
@@ -30,61 +59,36 @@ public class EnemyMovement : MonoBehaviour
 
     private int waypointIndex;
 
-    public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
-
-    public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
+    void Awake()
     {
-        EnemyMovement closest = null;
-       
-        foreach (EnemyMovement enemy in enemyList)
-        {
-            
-            if (enemy.IsDead())
-            {
-                Debug.Log(enemy + " " + enemy.IsDead());
+        enemyList.Add(this);
+        //Debug.Log(healthSystem.GetHealth());
+        healthSystem = new EnemyHealth(100);
+        healthSystem.SetHealthMax(maxHealth, true);
+        //SetEnemyType();
 
-                continue;
-            }
-            
-            if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
-            {
-                Debug.Log("IN RANGE");
-                if (closest == null)
-                {
-                    closest = enemy;
-                }
-                else
-                {
-                    if (Vector3.Distance(position, enemy.GetPosition()) < Vector3.Distance(position, closest.GetPosition()))
-                    {
-                        closest = enemy;
-                    }
-                }
-            }
-        }
 
-        return closest;
     }
 
     
 
-    void Awake()
-    {
-        enemyList.Add(this);
-        Debug.Log("Added to List");
-        healthSystem = new EnemyHealth(100);
-        SetEnemyType();
-        
+    
 
-    }
+   
 
     private void SetEnemyType()
     {
 
     }
 
+    public int GetHealth()
+    {
+        return healthSystem.GetHealth();
+    }
+
     public bool IsDead()
     {
+        
         return healthSystem.IsDead();
     }
 
@@ -108,23 +112,24 @@ public class EnemyMovement : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
-        Debug.Log(healthSystem.GetHealth());
         healthSystem.Damage(damageAmount);
         if (IsDead())
         {
-            foreach(EnemyMovement enemy in enemyList)
-            {
-               // Debug.Log("LIST: "+ enemy.ToString());
-            }
+            
             Destroy(gameObject);
-            foreach (EnemyMovement enemy in enemyList)
-            {
+            //foreach (EnemyMovement enemy in enemyList)
+            //{
                // Debug.Log("NEW LIST: " + enemy.ToString());
-            }
+            //}
         }
+        foreach (EnemyMovement enemy in enemyList)
+        {
+            Debug.Log("Damaged enemy: " + GetHealth());
+        }
+
     }
 
-   
+
 
     void Start()
     {
@@ -145,10 +150,14 @@ public class EnemyMovement : MonoBehaviour
                 
             }
         }
+
+        
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
     }
+
+    
 }
