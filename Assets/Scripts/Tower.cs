@@ -40,7 +40,7 @@ public class Tower : MonoBehaviour
             EnemyMovement enemy = GetClosestEnemy();
             if (enemy != null)
             {
-                Debug.Log("Enemy in range");
+               // Debug.Log("Enemy in range");
                 Projectile.Create(projectileShootFromPosition, enemy, damageAmount);
             }
            
