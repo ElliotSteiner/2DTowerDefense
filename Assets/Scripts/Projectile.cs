@@ -57,14 +57,20 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.gameObject.CompareTag("Enemy"))
+        GameObject enemyCollide = collision.gameObject;
+        if (enemyCollide.CompareTag("Enemy"))
         {
-
-            .Damage(damageAmount);
+            enemyCollide.GetComponent<EnemyMovement>().Damage(damageAmount);
             Destroy(gameObject);
-
         }
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    GameObject enemyCollide = collision.gameObject;
+        //   enemyCollide.GetComponent<EnemyMovement>
+        //    enemyCollide.Damage(damageAmount);
+        //    Destroy(gameObject);
+
+        //}
         
     }
 }
