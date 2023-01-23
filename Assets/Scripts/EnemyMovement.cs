@@ -6,6 +6,8 @@ using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private HealthBar healthBar;
+
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
 
@@ -66,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
         healthSystem = new EnemyHealth(100);
         healthSystem.SetHealthMax(maxHealth, true);
         //SetEnemyType();
-
+       
 
     }
 
@@ -113,6 +115,8 @@ public class EnemyMovement : MonoBehaviour
     public void Damage(int damageAmount)
     {
         healthSystem.Damage(damageAmount);
+        Debug.Log(healthSystem.GetHealthPercent());
+        healthBar.SetSize(healthSystem.GetHealthPercent());
         if (IsDead())
         {
             
@@ -124,9 +128,10 @@ public class EnemyMovement : MonoBehaviour
         }
         foreach (EnemyMovement enemy in enemyList)
         {
+          
             Debug.Log("Damaged enemy: " + GetHealth());
         }
-
+        
     }
 
 
