@@ -228,5 +228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8a7846d0d21314a8269c936d22ab84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tier2: {fileID: 21300000, guid: 2e050e19f89ed934ba30c507b1e217ff, type: 3}
   damageAmount: 25
   range: 3
