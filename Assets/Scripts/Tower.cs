@@ -6,7 +6,10 @@ using Utils;
 public class Tower : MonoBehaviour
 {
 
-   
+    public Sprite Tier2;
+
+    private int tier;
+
     [SerializeField]
     private int damageAmount;
     [SerializeField]
@@ -22,6 +25,7 @@ public class Tower : MonoBehaviour
         projectileShootFromPosition = transform.Find("ProjectileShootFromPosition").position;
         shootTimerMax = .4f;
         //range = 5f;
+        tier = 1;
     }
 
     private void Update()
@@ -58,21 +62,36 @@ public class Tower : MonoBehaviour
         return range;
     }
 
-    public void upgradeRange()
+    public float GetDamage()
     {
-        range += (range / 6);
+        return damageAmount;
     }
 
-    public void upgradeDamage()
+    //public void upgradeRange()
+    //{
+    //    range += (range / 6);
+    //}
+
+    //public void upgradeDamage()
+    //{
+    //    damageAmount += 5;
+    //}
+    public void upgradeTower()
     {
-        damageAmount += 5;
+        range += (range / 6);
+        damageAmount += 10;
+        if (tier == 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier2;
+            tier = 2;
+        }
     }
 
     private void OnMouseEnter()
     {
         UpgradeOverlay.Show_Static(this);
     }
-    private void OnMouseExit()
+    public void CloseOverlay()
     {
         UpgradeOverlay.Hide_Static();
     }

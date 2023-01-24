@@ -7,6 +7,7 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
+    private EnemyMovement healthSystem;
 
     public TMP_Text healthText;
     public static int maxHealth = 20;
@@ -31,16 +32,30 @@ public class Health : MonoBehaviour
     // tagged correctly and have a rigidbody that is stimulated and dynamic
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "MinorEnemy") {
+        healthSystem = collision.gameObject.GetComponent<EnemyMovement>();
+        
+        if(healthSystem.enemyHealth == 50)
+        {
             TakeDamage(1);
             healthText.text = currentHealth.ToString();
             Debug.Log("Your Health: " + currentHealth);
         }
-        if (collision.gameObject.tag == "MediumEnemy") {
+        if(healthSystem.enemyHealth == 80)
+        {
             TakeDamage(2);
             healthText.text = currentHealth.ToString();
-            Debug.Log("Your Health: " + currentHealth);
+            
         }
+        //if (collision.gameObject.tag == "MinorEnemy") {
+        //    TakeDamage(1);
+        //    healthText.text = currentHealth.ToString();
+        //    Debug.Log("Your Health: " + currentHealth);
+        //}
+        //if (collision.gameObject.tag == "MediumEnemy") {
+        //    TakeDamage(2);
+        //    healthText.text = currentHealth.ToString();
+        //    Debug.Log("Your Health: " + currentHealth);
+        //}
     }
 
    

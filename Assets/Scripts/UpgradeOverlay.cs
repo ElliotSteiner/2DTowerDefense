@@ -45,6 +45,13 @@ public class UpgradeOverlay : MonoBehaviour
 
     private void RefreshRangeVisuals()
     {
-        transform.Find("Range").localScale = Vector3.one * tower.GetRange() * 1f;
+        transform.Find("Range").localScale = Vector3.one * tower.GetRange() * .9f;
+    }
+
+    public void UpgradeTower()
+    {
+        Debug.Log("Clicked!");
+        tower.upgradeTower();
+        RefreshRangeVisuals();
     }
 }

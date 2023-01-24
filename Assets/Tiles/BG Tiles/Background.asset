@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 164518873d70ff24e9b70b89be69c317, type: 3}
-  m_Name: Grass 1
+  m_Name: Background
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 804848822a4c90f4a9ff357fbb3e3f73, type: 2}
-  - {fileID: 11400000, guid: 804848822a4c90f4a9ff357fbb3e3f73, type: 2}
+  - {fileID: 11400000, guid: 003c11f9faac0ce44a02cbf325ad6115, type: 2}
   path: 0

@@ -8,6 +8,13 @@ public class EnemyMovement : MonoBehaviour
 {
     private HealthBar healthBar;
 
+    public int enemyHealth;
+    void Start()
+    {
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
+        enemyHealth = maxHealth;
+    }
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
 
@@ -18,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         foreach (EnemyMovement enemy in enemyList)
         {
 
-            if (enemy.IsDead()) continue;
+            if (enemy.IsDead() || enemy == null) continue;
 
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
@@ -136,10 +143,7 @@ public class EnemyMovement : MonoBehaviour
 
 
 
-    void Start()
-    {
-        wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
-    }
+    
 
     void Update()
     {
