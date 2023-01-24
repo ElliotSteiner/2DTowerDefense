@@ -27,7 +27,7 @@ public class EnemyDeath : MonoBehaviour
             }
             int randNum = rnd.Next(1, 11);
             Debug.Log("Random #: " + randNum);
-            if (randNum == 8)
+            if (randNum < 8)
             {
                 gems += 10;
                 Debug.Log("Gems: " + gems);
