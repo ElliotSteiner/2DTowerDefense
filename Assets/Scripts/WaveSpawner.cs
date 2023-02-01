@@ -43,6 +43,7 @@ namespace Utils
         private SpawnState state = SpawnState.COUNTING;
 
         public TMP_Text newWaveTimer;
+        public TMP_Text shopTimer;
         public Button waveButton;
 
 
@@ -75,6 +76,7 @@ namespace Utils
         void Start()
         {
             newWaveTimer.text = waveCountdown.ToString();
+            shopTimer.text = waveCountdown.ToString();
             waveCountdown = timeBetweenWaves;
         }
 
@@ -119,10 +121,12 @@ namespace Utils
                 }
 
                 newWaveTimer.text = Math.Round(waveCountdown).ToString();
+                shopTimer.text = Math.Round(waveCountdown).ToString();
 
                 if (waveCountdown == 0)
                 {
                     newWaveTimer.text = " ";
+                    shopTimer.text = " ";
                 }
             }
         }
@@ -181,7 +185,7 @@ namespace Utils
         {
             waveCountdown = 0;
             newWaveTimer.text = " ";
-
+            shopTimer.text = " ";
         }
 
 
