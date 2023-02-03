@@ -10,7 +10,7 @@ namespace Utils
     public class Grid : MonoBehaviour
     {
 
-        private MapManager mapManager;
+        private GridController gridController;
 
 
 
@@ -83,7 +83,8 @@ namespace Utils
         }
         private void Awake()
         {
-            mapManager = FindObjectOfType<MapManager>();
+            ClickedButtonName = null;
+            gridController = FindObjectOfType<GridController>();
 
             grid = new Grid(20, 10, 1f, new Vector3(-10, -5));
             gridValues = new int[gridWidth, gridHeight];
@@ -123,8 +124,8 @@ namespace Utils
             if (Input.GetMouseButtonDown(1))
             {
 
-                if (mapManager.GetTileType() == false)
-                {
+                //if (gridController.GetTileType() == false)
+                //{
                     if(ClickedButtonName.Equals("Wizard"))
                     {
                         Debug.Log(ClickedButtonName + " is clicked!");
@@ -158,9 +159,14 @@ namespace Utils
                     //Debug.Log("SPAWN");
                     //SpawnTower();
 
+                //}
+                else
+                {
+                    Debug.Log("Building not placed");
                 }
 
             }
+            
         }
 
         public void ifBuild(bool isPath)
@@ -451,22 +457,22 @@ namespace Utils
                 TowerAdj++;
                 Debug.Log("Bottom Good");
             }
-            if (buildPosX == 18 || buildPosY == 10 || gridValues[buildPosX + 1, buildPosY + 1] == 0 || buildPosX == 18 && buildPosY == 10)
+            if (buildPosX == 18 || buildPosY == 10 || gridValues[buildPosX + 1, buildPosY + 1] == 0 || (buildPosX == 18 && buildPosY == 10))
             {
                 TowerAdj++;
                 Debug.Log("Top Right Good");
             }
-            if (buildPosX == 18 || buildPosY == 0 || gridValues[buildPosX + 1, buildPosY - 1] == 0 || buildPosX == 18 && buildPosY == 0)
+            if (buildPosX == 18 || buildPosY == 0 || gridValues[buildPosX + 1, buildPosY - 1] == 0 || (buildPosX == 18 && buildPosY == 0))
             {
                 TowerAdj++;
                 Debug.Log("Bottom Right Good");
             }
-            if (buildPosX == 0 || buildPosY == 0 || gridValues[buildPosX - 1, buildPosY - 1] == 0 || buildPosX == 0 && buildPosY == 0)
+            if (buildPosX == 0 || buildPosY == 0 || gridValues[buildPosX - 1, buildPosY - 1] == 0 || (buildPosX == 0 && buildPosY == 0))
             {
                 TowerAdj++;
                 Debug.Log("Bottom Left Good");
             }
-            if (buildPosX == 0 || buildPosY == 10 || gridValues[buildPosX - 1, buildPosY + 1] == 0 || buildPosX == 0 && buildPosY == 10)
+            if (buildPosX == 0 || buildPosY == 10 || gridValues[buildPosX - 1, buildPosY + 1] == 0 || (buildPosX == 0 && buildPosY == 10))
             {
                 TowerAdj++;
                 Debug.Log("Top Left Good");

@@ -9,6 +9,7 @@ namespace Utils
 
     public class MapManager : MonoBehaviour
     {
+        
 
         private string selectTile;
 
@@ -30,11 +31,16 @@ namespace Utils
 
 
 
+        private void Start()
+        {
+           
+        }
 
         private void Awake()
         {
             //tileData = FindObjectOfType<TileData>();
             dataFromTiles = new Dictionary<TileBase, TileData>();
+            
 
             foreach (var tileData in tileDatas)
             {
@@ -54,22 +60,26 @@ namespace Utils
 
         void Update()
         {
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3Int gridPosition = map.WorldToCell(mousePosition);
-
-                TileBase clickedTile = map.GetTile(gridPosition);
-
-                bool path = dataFromTiles[clickedTile].path;
+           
 
 
+            //if (Input.GetMouseButtonDown(1))
+            //{
+            //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //    Vector3Int gridPosition = map.WorldToCell(mousePosition);
 
-            }
+            //    TileBase clickedTile = map.GetTile(gridPosition);
+
+            //    bool path = dataFromTiles[clickedTile].path;
+
+
+
+            //}
+
 
         }
 
+        
 
         public bool GetTileType()
         {
