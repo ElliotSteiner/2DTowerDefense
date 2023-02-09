@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Utils;
 
 namespace Utils
 {
 
     public class WaveSpawner : MonoBehaviour
     {
-
+        EnemyHealth healthSystem;
 
         
 
@@ -42,6 +43,7 @@ namespace Utils
         private SpawnState state = SpawnState.COUNTING;
 
         public TMP_Text newWaveTimer;
+        public TMP_Text shopTimer;
         public Button waveButton;
 
 
@@ -74,6 +76,7 @@ namespace Utils
         void Start()
         {
             newWaveTimer.text = waveCountdown.ToString();
+            shopTimer.text = waveCountdown.ToString();
             waveCountdown = timeBetweenWaves;
         }
 
@@ -118,10 +121,12 @@ namespace Utils
                 }
 
                 newWaveTimer.text = Math.Round(waveCountdown).ToString();
+                shopTimer.text = Math.Round(waveCountdown).ToString();
 
                 if (waveCountdown == 0)
                 {
                     newWaveTimer.text = " ";
+                    shopTimer.text = " ";
                 }
             }
         }
@@ -148,7 +153,7 @@ namespace Utils
             if (searchCountdown <= 0f)
             {
                 searchCountdown = 1f;
-                if (GameObject.FindGameObjectWithTag("MinorEnemy") == null && GameObject.FindGameObjectWithTag("MediumEnemy") == null)
+                if (GameObject.FindGameObjectWithTag("Enemy") == null)
                 { //You might have to make an if statement for each enemy tag
                     return false;
                 }
@@ -180,7 +185,7 @@ namespace Utils
         {
             waveCountdown = 0;
             newWaveTimer.text = " ";
-
+            shopTimer.text = " ";
         }
 
 

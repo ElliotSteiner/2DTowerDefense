@@ -3,7 +3,14 @@ guid: ff5ff6c2e6331f647b2bb39d7c203573
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pfProjectile: {instanceID: 0}
+  - pfTowerWizard: {instanceID: 0}
+  - pfTowerArcher: {instanceID: 0}
+  - pfTowerCannon: {instanceID: 0}
+  - pfTowerBoulder: {instanceID: 0}
+  - pfTowerLookout: {instanceID: 0}
+  - pfTowerDruid: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

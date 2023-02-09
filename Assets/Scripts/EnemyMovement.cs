@@ -1,37 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
+    private HealthBar healthBar;
 
-    public enum EnemyType
+    public int enemyHealth;
+    void Start()
     {
-        Minor,
-        Medium,
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
+        enemyHealth = maxHealth;
     }
-
-
-    public float speed;
-
-    private Waypoints wpoints;
-
-    private EnemyHealth healthSystem;
-
-    private int waypointIndex;
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
 
     public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
     {
         EnemyMovement closest = null;
+
         foreach (EnemyMovement enemy in enemyList)
         {
-            if (enemy.IsDead()) continue;
+
+            if (enemy.IsDead() || enemy == null) continue;
+
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
+                //Debug.Log("IN RANGE");
                 if (closest == null)
                 {
                     closest = enemy;
@@ -45,45 +43,107 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+
         return closest;
     }
+
+
+
+    [SerializeField]
+    int maxHealth;
+
+    public enum EnemyType
+    {
+        Minor,
+        Medium,
+    }
+
+
+
+    public float speed;
+
+    private Waypoints wpoints;
+
+    private EnemyHealth healthSystem;
+
+    private int waypointIndex;
 
     void Awake()
     {
         enemyList.Add(this);
+        //Debug.Log(healthSystem.GetHealth());
         healthSystem = new EnemyHealth(100);
+        healthSystem.SetHealthMax(maxHealth, true);
+        //SetEnemyType();
+       
 
+    }
+
+    
+
+    
+
+   
+
+    private void SetEnemyType()
+    {
+
+    }
+
+    public int GetHealth()
+    {
+        return healthSystem.GetHealth();
     }
 
     public bool IsDead()
     {
+        
         return healthSystem.IsDead();
     }
 
-    private void SetEnemyType(EnemyType enemyType)
-    {
-        Material material;
+    //private void SetEnemyType(EnemyType enemyType)
+    //{
+    //    Material material;
 
-        switch (enemyType)
+    //    switch (enemyType)
+    //    {
+    //        default:
+    //        case EnemyType.Minor:
+    //            material = GameAssets.i.m_EnemyMinor;
+    //            healthSystem.SetHealthMax(50, true);
+    //            break;
+    //        case EnemyType.Medium:
+    //            material = GameAssets.i.m_EnemyMedium;
+    //            healthSystem.SetHealthMax(80, true);
+    //            break;
+    //    }
+    //}
+
+    public void Damage(int damageAmount)
+    {
+        healthSystem.Damage(damageAmount);
+        Debug.Log(healthSystem.GetHealthPercent());
+        healthBar.SetSize(healthSystem.GetHealthPercent());
+        if (IsDead())
         {
-            default:
-            case EnemyType.Minor:
-                material = GameAssets.i.m_EnemyMinor;
-                healthSystem.SetHealthMax(80, true);
-                break;
-            case EnemyType.Medium:
-                material = GameAssets.i.m_EnemyMedium;
-                healthSystem.SetHealthMax(80, true);
-                break;
+            
+            Destroy(gameObject);
+            //foreach (EnemyMovement enemy in enemyList)
+            //{
+               // Debug.Log("NEW LIST: " + enemy.ToString());
+            //}
         }
+        foreach (EnemyMovement enemy in enemyList)
+        {
+          
+            Debug.Log("Damaged enemy: " + GetHealth());
+        }
+        
     }
 
-   
 
-    void Start()
-    {
-        wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
-    }
+
+    
 
     void Update()
     {
@@ -96,12 +156,17 @@ public class EnemyMovement : MonoBehaviour
             }
             else {
                 Destroy(gameObject);
+                
             }
         }
+
+        
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
     }
+
+    
 }

@@ -16,8 +16,14 @@ public class GameAssets : MonoBehaviour
     }
 
     public Transform pfProjectile;
-    public Transform pfTower;
+    public Transform pfTowerWizard;
+    public Transform pfTowerArcher;
+    public Transform pfTowerCannon;
+    public Transform pfTowerBoulder;
+    public Transform pfTowerLookout;
+    public Transform pfTowerDruid;
+    
 
-    public Material m_EnemyMinor;
-    public Material m_EnemyMedium;
+    //public Transform pf_EnemyMinor;
+    //public Transform pf_EnemyMedium;
 }

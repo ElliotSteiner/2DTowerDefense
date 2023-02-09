@@ -7,7 +7,9 @@ TagManager:
   - Waypoints
   - MinorEnemy
   - MediumEnemy
+  - Enemy
   - GameMasterObject
+  - Projectile
   layers:
   - Default
   - TransparentFX
