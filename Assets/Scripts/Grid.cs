@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Utils;
+using UnityEngine.EventSystems;
 
 namespace Utils
 {
     public class Grid : MonoBehaviour
     {
 
-        private MapManager mapManager;
+        private GridController gridController;
 
 
 
@@ -24,8 +25,13 @@ namespace Utils
         public int gridWidth;
 
 
+        private string ClickedButtonName;
+
         private Tilemap map;
 
+
+        private int TowerAdj;
+        private int TowerValue;
         private int width;
         private int height;
         private float cellSize;
@@ -77,7 +83,8 @@ namespace Utils
         }
         private void Awake()
         {
-            mapManager = FindObjectOfType<MapManager>();
+            ClickedButtonName = null;
+            gridController = FindObjectOfType<GridController>();
 
             grid = new Grid(20, 10, 1f, new Vector3(-10, -5));
             gridValues = new int[gridWidth, gridHeight];
@@ -111,17 +118,55 @@ namespace Utils
 
         private void Update()
         {
+
+            
+
             if (Input.GetMouseButtonDown(1))
             {
 
-                if (mapManager.GetTileType() == false)
+                //if (gridController.GetTileType() == false)
+                //{
+                    if(ClickedButtonName.Equals("Wizard"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerWizard();
+                    }
+                    if (ClickedButtonName.Equals("Archer"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerArcher();
+                    }
+                    if (ClickedButtonName.Equals("Cannon"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerCannon();
+                    }
+                    if (ClickedButtonName.Equals("Druid"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerDruid();
+                    }
+                    if (ClickedButtonName.Equals("Boulder"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerBoulder();
+                    }
+                    if (ClickedButtonName.Equals("Lookout"))
+                    {
+                        Debug.Log(ClickedButtonName + " is clicked!");
+                        SpawnTowerLookout();
+                    }
+                    //Debug.Log("SPAWN");
+                    //SpawnTower();
+
+                //}
+                else
                 {
-                    Debug.Log("SPAWN");
-                    SpawnTower();
-                    
+                    Debug.Log("Building not placed");
                 }
 
             }
+            
         }
 
         public void ifBuild(bool isPath)
@@ -129,7 +174,7 @@ namespace Utils
             if (isPath == false)
             {
                 Debug.Log("GRASS");
-                SpawnTower();
+               // SpawnTower();
 
             }
         }
@@ -160,25 +205,25 @@ namespace Utils
                 return buildPositionY;
             }
 
-            private void SpawnTower()
-            {
-            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
-            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+            //private void SpawnTower()
+            //{
+            //int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            //int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
 
-            if (gridValues[buildPosX, buildPosY] == 0)
-            {
-                gridValues[buildPosX, buildPosY] = 1;
-                Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
-                spawnPosition = ValidateWorldGridPosition(spawnPosition);
-                spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+            //if (gridValues[buildPosX, buildPosY] == 0)
+            //{
+            //    gridValues[buildPosX, buildPosY] = 1;
+            //    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+            //    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+            //    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
 
-                Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
-            }
-            else
-            {
-                Debug.Log("NO BUILD");
-            }
-            }
+            //    Instantiate(GameAssets.i.pfTower, spawnPosition, Quaternion.identity);
+            //}
+            //else
+            //{
+            //    Debug.Log("NO BUILD");
+            //}
+            //}
 
             private Vector3 ValidateWorldGridPosition(Vector3 position)
             {
@@ -210,14 +255,229 @@ namespace Utils
             }
 
 
+        public void TowerChoose()
+        {
+            ClickedButtonName = EventSystem.current.currentSelectedGameObject.name;
+            //Debug.Log(ClickedButtonName + " is clicked!");
+        }
+        
+          
+            
+           
         
 
 
+        private void SpawnTowerWizard()
+        {
+            CanBuild();
+            
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                if (TowerAdj == 8)
+                {
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerWizard, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void SpawnTowerArcher()
+        {
+            CanBuild();
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                if (TowerAdj == 8)
+                {
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
 
 
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerArcher, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void SpawnTowerCannon()
+        {
+            CanBuild();
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                if (TowerAdj == 8)
+                {
 
 
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
 
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerCannon, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void SpawnTowerDruid()
+        {
+            CanBuild();
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                if (TowerAdj == 8)
+                {
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+
+
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerDruid, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void SpawnTowerLookout()
+        {
+            CanBuild();
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+                if (TowerAdj == 8)
+                {
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerLookout, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void SpawnTowerBoulder()
+        {
+            CanBuild();
+            
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+
+            if (gridValues[buildPosX, buildPosY] == 0)
+            {
+
+                
+                if (TowerAdj == 8) {
+                    gridValues[buildPosX, buildPosY] = 1;
+                    Vector3 spawnPosition = TowerPosition.GetMouseWorldPosition();
+                    spawnPosition = ValidateWorldGridPosition(spawnPosition);
+                    spawnPosition += new Vector3(xAlign, yAlign, 0) * grid.GetCellSize() * 0.5f;
+
+                    Debug.Log("BUILD");
+                    Instantiate(GameAssets.i.pfTowerBoulder, spawnPosition, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Debug.Log("NO BUILD");
+            }
+        }
+
+        private void CanBuild()
+        {
+            TowerAdj = 0;
+
+            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+            Debug.Log(buildPosX);
+            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+            Debug.Log(buildPosY);
+
+            if (buildPosX == 0 || gridValues[buildPosX - 1, buildPosY] == 0)
+            {
+                TowerAdj++;
+                Debug.Log("Left Good");
+            }
+            if (buildPosY == 10 || gridValues[buildPosX, buildPosY + 1] == 0)
+            {
+                TowerAdj++;
+                Debug.Log("Top Good");
+            }
+            if (buildPosX == 18 || gridValues[buildPosX + 1, buildPosY] == 0)
+            {
+                TowerAdj++;
+                Debug.Log("Right Good");
+            }
+            if (buildPosY == 0 || gridValues[buildPosX, buildPosY - 1] == 0)
+            {
+                TowerAdj++;
+                Debug.Log("Bottom Good");
+            }
+            if (buildPosX == 18 || buildPosY == 10 || gridValues[buildPosX + 1, buildPosY + 1] == 0 || (buildPosX == 18 && buildPosY == 10))
+            {
+                TowerAdj++;
+                Debug.Log("Top Right Good");
+            }
+            if (buildPosX == 18 || buildPosY == 0 || gridValues[buildPosX + 1, buildPosY - 1] == 0 || (buildPosX == 18 && buildPosY == 0))
+            {
+                TowerAdj++;
+                Debug.Log("Bottom Right Good");
+            }
+            if (buildPosX == 0 || buildPosY == 0 || gridValues[buildPosX - 1, buildPosY - 1] == 0 || (buildPosX == 0 && buildPosY == 0))
+            {
+                TowerAdj++;
+                Debug.Log("Bottom Left Good");
+            }
+            if (buildPosX == 0 || buildPosY == 10 || gridValues[buildPosX - 1, buildPosY + 1] == 0 || (buildPosX == 0 && buildPosY == 10))
+            {
+                TowerAdj++;
+                Debug.Log("Top Left Good");
+            }
+        }
 
 
 
