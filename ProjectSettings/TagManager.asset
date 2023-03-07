@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - GameMasterObject
   - Projectile
+  - Frostbane
+  - Hpot
+  - FireSpirit
   layers:
   - Default
   - TransparentFX

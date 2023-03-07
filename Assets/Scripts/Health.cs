@@ -17,7 +17,6 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
-        Debug.Log("Your Health: " + currentHealth);
     }
 
     void TakeDamage(int amount) {
@@ -38,7 +37,6 @@ public class Health : MonoBehaviour
         {
             TakeDamage(1);
             healthText.text = currentHealth.ToString();
-            Debug.Log("Your Health: " + currentHealth);
         }
         if(healthSystem.enemyHealth == 80)
         {

@@ -29,7 +29,7 @@ public class EnemyDeath : MonoBehaviour
             Debug.Log("Random #: " + randNum);
             if (randNum < 8)
             {
-                gems += 10;
+                gems += 100;
                 Debug.Log("Gems: " + gems);
             }
             Destroy(gameObject);
