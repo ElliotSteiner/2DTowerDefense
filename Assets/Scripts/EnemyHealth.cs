@@ -9,7 +9,7 @@ using System;
     {
 
      
-        private int health;
+        private float health;
         private int healthMax;
     //private HealthBar healthBar;
 
@@ -20,7 +20,7 @@ using System;
             health = healthMax;
         }
 
-        public int GetHealth()
+        public float GetHealth()
         {
         return health;
         }
@@ -31,7 +31,7 @@ using System;
         }
 
 
-        public void Damage(int damage)
+        public void Damage(float damage)
         {
             health -= damage;
             if (health < 0)

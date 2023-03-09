@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7673475668680844424}
   - component: {fileID: -6245855815270082794}
   m_Layer: 0
-  m_Name: pfProjectile
+  m_Name: pfProjectileBoulder
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: 179a5108a13420b489ccee52da9a06a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b31168b84cff0f74c9814efea3307ec0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b942735d01c6343bd60b73bb4eb6ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicBolt: {fileID: 0}
+  fireBall: {fileID: 0}
   moveSpeed: 10
+  boulderRange: 5
+  isWizardProjectile: 0
+  upgradeWizard: {fileID: 0}
+  isBoulderProjectile: 1
 --- !u!58 &-7673475668680844424
 CircleCollider2D:
   m_ObjectHideFlags: 0

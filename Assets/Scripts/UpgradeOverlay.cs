@@ -7,9 +7,15 @@ public class UpgradeOverlay : MonoBehaviour
     private static UpgradeOverlay Instance { get; set; }
 
     private Tower tower;
+    GameObject Overlay;
+    static GameObject Button;
 
     private void Awake()
     {
+        Overlay = GameObject.Find("UpgradeOverlay");
+        //Debug.Log(Overlay);
+        Button = Overlay.transform.GetChild(0).GetChild(0).gameObject;
+        //Debug.Log(Button);
         Instance = this;
 
         Hide();
@@ -53,5 +59,14 @@ public class UpgradeOverlay : MonoBehaviour
         Debug.Log("Clicked!");
         tower.upgradeTower();
         RefreshRangeVisuals();
+    }
+
+    public static void HideButton()
+    {
+        Button.SetActive(false);
+    }
+    public static void ShowButton()
+    {
+        Button.SetActive(true);
     }
 }

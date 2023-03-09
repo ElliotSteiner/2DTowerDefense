@@ -225,9 +225,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6491919718020205908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba8a7846d0d21314a8269c936d22ab84, type: 3}
+  m_Script: {fileID: 11500000, guid: c0e5416c47821fa49b78469186db3bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball: {fileID: 0}
   Tier2: {fileID: 21300000, guid: ee82af0c7bd1a1f4d84a4b59cb0072c2, type: 3}
-  damageAmount: 25
-  range: 3
+  Tier3: {fileID: 21300000, guid: 594dd877d410f8845a9e22fe5f585227, type: 3}
+  damageAmount: 20
+  range: 4
+  projectileMoveSpeed: 0
+  shootTimerMax: 2
+  reduceEnemySpeed: 1
+  boulderRange: 5
+  isBoulder: 1
+  isLookout: 0
+  isWizard: 0
+  isArcher: 0
+  isCannon: 0
+  isDruid: 0
