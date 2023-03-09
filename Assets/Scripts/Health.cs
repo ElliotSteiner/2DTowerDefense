@@ -27,12 +27,12 @@ public class Health : MonoBehaviour
              }
     }
     
-    // Note: In order for the health system to work, the enemy must be
-    // tagged correctly and have a rigidbody that is stimulated and dynamic
+    // Note: In order for the health system to work, the enemy must have a rigidbody that is stimulated and dynamic
 
     private void OnTriggerEnter2D(Collider2D collision) {
+
         healthSystem = collision.gameObject.GetComponent<EnemyMovement>();
-        
+        Debug.Log(healthSystem.enemyHealth);
         if(healthSystem.enemyHealth == 50)
         {
             TakeDamage(1);

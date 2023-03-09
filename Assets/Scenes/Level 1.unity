@@ -11317,7 +11317,6 @@ MonoBehaviour:
   waveCountdown: 0
   newWaveTimer: {fileID: 1061297526}
   shopTimer: {fileID: 1081955011}
-  waveButton: {fileID: 0}
 --- !u!114 &1605661202
 MonoBehaviour:
   m_ObjectHideFlags: 0

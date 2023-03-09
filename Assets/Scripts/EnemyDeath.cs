@@ -5,15 +5,15 @@ using Random = System.Random;
 
 public class EnemyDeath : MonoBehaviour
 {
-    public float enemyHealth;
     public static float money = 200;
     public static float gems = 0;
 
     Random rnd = new Random();
 
+
     void Update()
     {
-        if (enemyHealth <= 0)
+        if (Health.currentHealth <= 0)
         {
             if (gameObject.tag == "MinorEnemy")
             {

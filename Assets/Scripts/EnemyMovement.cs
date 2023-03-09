@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using TMPro;
 using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
+
+    [SerializeField]
+    int maxHealth;
+
     private HealthBar healthBar;
 
     public int enemyHealth;
+
+
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
@@ -47,10 +52,6 @@ public class EnemyMovement : MonoBehaviour
         return closest;
     }
 
-
-
-    [SerializeField]
-    int maxHealth;
 
     public enum EnemyType
     {

@@ -44,7 +44,7 @@ namespace Utils
 
         public TMP_Text newWaveTimer;
         public TMP_Text shopTimer;
-        public Button waveButton;
+
 
 
         //public static List<WaveSpawner> enemyList = new List<WaveSpawner>();
