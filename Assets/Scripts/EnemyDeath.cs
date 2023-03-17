@@ -7,13 +7,14 @@ public class EnemyDeath : MonoBehaviour
 {
     public static float money = 200;
     public static float gems = 0;
+    public EnemyHealth enemyHealth;
 
     Random rnd = new Random();
 
 
     void Update()
     {
-        if (Health.currentHealth <= 0)
+        if (enemyHealth.GetHealth() <= 0)
         {
             if (gameObject.tag == "MinorEnemy")
             {

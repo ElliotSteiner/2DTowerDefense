@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class InventoryManager : MonoBehaviour
 {
     public float coins;
+    public DraggableItem draggableItem;
     public GameObject eventSystem;
     public GameObject itemOne;
     public GameObject itemTwo;
@@ -35,6 +36,11 @@ public class InventoryManager : MonoBehaviour
         shopItems[3, 3] = 0;
     }
 
+    public void ItemUse(int itemID)
+    {
+        shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]--;
+        Debug.Log("It works! Item Quantity: " + shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]);
+    }
 
     public void Purchase()
     {
