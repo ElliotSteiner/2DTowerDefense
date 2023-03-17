@@ -7,6 +7,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     Transform parentAfterDrag;
     private Vector3 startPoint;
+    public int itemID;
 
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -25,6 +26,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(parentAfterDrag);
-        transform.position = startPoint;//This will eventually go in an if statement that checks if it's over a path tile or not.
+
+        //   if (MapManager.GetTileType() == false)
+        //   {
+        //       transform.position = startPoint;
+
+        // |##### Not sure how to call the GetTileType script #####| 
+
+        //   } 
+        //   else
+        //   {
+        gameObject.BroadcastMessage("ItemUse", itemID);
+        Destroy(gameObject);
+        //   }
     }
 }

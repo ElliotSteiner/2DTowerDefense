@@ -30,12 +30,6 @@ namespace Utils
         private Dictionary<TileBase, TileData> dataFromTiles;
 
 
-
-        private void Start()
-        {
-           
-        }
-
         private void Awake()
         {
             //tileData = FindObjectOfType<TileData>();
