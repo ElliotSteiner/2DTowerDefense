@@ -5,7 +5,6 @@ using TMPro;
 
 public class MoneyUI : MonoBehaviour
 {
-
     public TMP_Text coins;
     public TMP_Text gems;
     public TMP_Text shopGems;

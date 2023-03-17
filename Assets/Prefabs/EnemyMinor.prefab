@@ -102,6 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  goldAmount: 50
+  isMinor: 1
+  isMedium: 0
+  loopDuration: 10
+  enemyHealth: 0
   speed: 3
 --- !u!61 &7042926129845492329
 BoxCollider2D:
@@ -137,7 +142,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7042926129845492325}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

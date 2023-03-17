@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfProjectile: {fileID: 5287543295354773929, guid: 2917285684e5ff642aebb98a3fe9dd0d, type: 3}
+  pfProjectileWizard: {fileID: 5287543295354773929, guid: 2917285684e5ff642aebb98a3fe9dd0d, type: 3}
+  pfProjectileArcher: {fileID: 5287543295354773929, guid: 2b043727fa569ce4f8a1aa2bbcfd21c9, type: 3}
+  pfProjectileBoulder: {fileID: 5287543295354773929, guid: a921222f5ddb0a14094eaf71f3c6eaad, type: 3}
+  pfProjectileDruid: {fileID: 5287543295354773929, guid: 8fc2a04a96c2b704b826383b9dd148df, type: 3}
+  pfProjectileCannon: {fileID: 5287543295354773929, guid: 3f464d2cd10a0514091ef62540f61598, type: 3}
   pfTowerWizard: {fileID: 6491919718020205914, guid: 49c68c267a58c884d8a552fc4f480cd7, type: 3}
   pfTowerArcher: {fileID: 6491919718020205914, guid: 4f9aa902b5295754ea1df636e3fb8882, type: 3}
   pfTowerCannon: {fileID: 6491919718020205914, guid: 3b811a29708ed5c4ead96388c79d0825, type: 3}

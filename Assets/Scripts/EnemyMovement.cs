@@ -1,14 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using TMPro;
 using Utils;
 
 public class EnemyMovement : MonoBehaviour
 {
+
+    [SerializeField]
+    int maxHealth;
+    [SerializeField]
+    private int goldAmount;
+
     private HealthBar healthBar;
+    private Tower tower;
+    private float enemySpeed;
+
+    public bool isMinor;
+    public bool isMedium;
+
+    public EnemyDeath enemyDeathScript;
+
+    public float loopDuration = 10.0f;
+    private float time = 0.0f;
 
     public int enemyHealth;
+
+
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
@@ -26,7 +43,6 @@ public class EnemyMovement : MonoBehaviour
         {
 
             if (enemy.IsDead() || enemy == null) continue;
-
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
                 //Debug.Log("IN RANGE");
@@ -48,10 +64,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-
-    [SerializeField]
-    int maxHealth;
-
     public enum EnemyType
     {
         Minor,
@@ -70,27 +82,41 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
+        enemyDeathScript = new EnemyDeath();
+        enemySpeed = speed;
         enemyList.Add(this);
         //Debug.Log(healthSystem.GetHealth());
         healthSystem = new EnemyHealth(100);
         healthSystem.SetHealthMax(maxHealth, true);
         //SetEnemyType();
+        tower = FindObjectOfType<Tower>();
        
 
     }
 
-    
-
-    
-
-   
-
-    private void SetEnemyType()
+    private void GetGold(int goldValue)
     {
-
+        enemyDeathScript.GiveMoney(goldValue);
     }
 
-    public int GetHealth()
+    
+
+  
+
+    public void DealBoulder(Vector3 position, float maxRange, float damage)
+    {
+        foreach(EnemyMovement enemy in enemyList)
+        {
+            if (enemy.IsDead() || enemy == null) continue;
+            if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
+            {
+                //enemy.Damage(tower.damageAmount, tower.reduceEnemySpeed);
+                enemy.Damage(damage, 1);
+            }
+        }
+    }
+
+    public float GetHealth()
     {
         return healthSystem.GetHealth();
     }
@@ -119,26 +145,56 @@ public class EnemyMovement : MonoBehaviour
     //    }
     //}
 
-    public void Damage(int damageAmount)
+    public void Damage(float damageAmount, float reducedSpeed)
     {
         healthSystem.Damage(damageAmount);
-        Debug.Log(healthSystem.GetHealthPercent());
+       // Debug.Log(healthSystem.GetHealthPercent());
         healthBar.SetSize(healthSystem.GetHealthPercent());
+        if (reducedSpeed < 1)
+        {
+            //enemySpeed = speed * reducedSpeed;
+            //StartCoroutine(speedTimer());
+            StartCoroutine(DoLoop(reducedSpeed));
+            
+        }
+        //else
+        //{
+        //    enemySpeed = enemySpeed;
+        //}
+        
+
         if (IsDead())
         {
-            
+            GetGold(goldAmount);
             Destroy(gameObject);
+            
             //foreach (EnemyMovement enemy in enemyList)
             //{
                // Debug.Log("NEW LIST: " + enemy.ToString());
             //}
         }
-        foreach (EnemyMovement enemy in enemyList)
-        {
-          
-            Debug.Log("Damaged enemy: " + GetHealth());
-        }
         
+        
+    }
+
+    IEnumerator DoLoop(float reducedSpeed)
+    {
+        do
+        {
+            enemySpeed = speed * reducedSpeed;
+            time += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        } while (time < loopDuration);
+        time = 0.0f;
+        enemySpeed = speed;
+    }
+
+    IEnumerator speedTimer()
+    {
+        yield return new WaitForSeconds(10.0f);
+        enemySpeed = speed;
+
+
     }
 
 
@@ -147,7 +203,9 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, wpoints.waypoints[waypointIndex].position, speed * Time.deltaTime);
+       
+
+        transform.position = Vector2.MoveTowards(transform.position, wpoints.waypoints[waypointIndex].position, enemySpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, wpoints.waypoints[waypointIndex].position) < 0.1f) {
             if (waypointIndex < wpoints.waypoints.Length - 1)

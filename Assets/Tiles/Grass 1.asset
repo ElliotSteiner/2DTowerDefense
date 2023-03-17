@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 804848822a4c90f4a9ff357fbb3e3f73, type: 2}
+  - {fileID: 11400000, guid: 92411e3c832890d46bbecf5e2650ed54, type: 2}
   path: 0

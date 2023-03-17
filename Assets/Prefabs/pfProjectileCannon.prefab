@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7673475668680844424}
   - component: {fileID: -6245855815270082794}
   m_Layer: 0
-  m_Name: pfProjectile
+  m_Name: pfProjectileCannon
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: 179a5108a13420b489ccee52da9a06a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04ea418059895244f96d62a613bff397, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
