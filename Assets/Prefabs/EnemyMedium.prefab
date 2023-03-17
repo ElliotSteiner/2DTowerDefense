@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8500427598014566287}
   - component: {fileID: 5237119863960411804}
-  - component: {fileID: -1147576317393004644}
   - component: {fileID: 1734070597252412735}
   - component: {fileID: 7728576848847731768}
   - component: {fileID: 2534870600527820342}
@@ -90,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-1147576317393004644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7853114739491888898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba48ab4853350664a890f30fd2ed93c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 200
 --- !u!114 &1734070597252412735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 80
+  goldAmount: 100
+  isMinor: 0
+  isMedium: 1
+  loopDuration: 10
+  enemyHealth: 0
   speed: 1.5
 --- !u!58 &7728576848847731768
 CircleCollider2D:

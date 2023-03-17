@@ -13,11 +13,11 @@ public class Tower : MonoBehaviour
 
     public Sprite Tier2;
     public Sprite Tier3;
+    public Projectile projectileType;
 
-    
-     
+    public EnemyDeath enemyDeathScript;
 
-    private int tier;
+    public int tier;
 
     [SerializeField]
     public float damageAmount;
@@ -30,7 +30,6 @@ public class Tower : MonoBehaviour
     [SerializeField]
     public float reduceEnemySpeed;
 
-    private float boulderDamage;
     private float trueRange;
     private float trueSpeed;
 
@@ -82,7 +81,7 @@ public class Tower : MonoBehaviour
                     tower.lookoutUpgrade(lookedOut, tower, tier);
                 }
                 //Debug.Log("IN RANGE");
-                Debug.Log(tower);
+                //Debug.Log(tower);
             }
         }
 
@@ -94,9 +93,9 @@ public class Tower : MonoBehaviour
 
         lookoutTier = tier;
         
-        Debug.Log("TIER = " + lookoutTier);
-        Debug.Log("Range: " + tower.range + " " + "ShootSpeed: " + tower.shootTimerMax);
-        Debug.Log("lookedOutValue: "+tower.lookedOut);
+       // Debug.Log("TIER = " + lookoutTier);
+        //Debug.Log("Range: " + tower.range + " " + "ShootSpeed: " + tower.shootTimerMax);
+        //Debug.Log("lookedOutValue: "+tower.lookedOut);
         if(tower.lookedOut == 0)
         {
             Debug.Log("Range Increased: "+ (rangeIncrease));
@@ -136,8 +135,10 @@ public class Tower : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(EnemyDeath.money);
+        enemyDeathScript = new EnemyDeath();
         enemyMovement = gameObject.GetComponent<EnemyMovement>();
-        boulderDamage = enemyMovement.boulderDamage;
+       
         overlay = gameObject.GetComponent<UpgradeOverlay>();
         if (isWizard)
         {
@@ -175,12 +176,13 @@ public class Tower : MonoBehaviour
         {
             //Projectile.Create(projectileShootFromPosition, Testing.GetMouseWorldPosition());
         }
-
-        shootTimer -= Time.deltaTime;
+        //Debug.Log("ShootTimer: " + shootTimer);
+       shootTimer -= Time.deltaTime;
+        
 
         if (shootTimer <= 0f)
         {
-            shootTimer = shootTimerMax;
+            //shootTimer = shootTimerMax;
 
             EnemyMovement enemy = GetClosestEnemy();
             if (enemy != null)
@@ -190,6 +192,7 @@ public class Tower : MonoBehaviour
                     whichTower();
                     // Debug.Log("Enemy in range");
                     Projectile.Create(projectileShootFromPosition, enemy, damageAmount, reduceEnemySpeed, bullet);
+                    shootTimer = shootTimerMax;
                 }
             }
            
@@ -250,15 +253,17 @@ public class Tower : MonoBehaviour
     //}
     public void upgradeTower()
     {
-        if (isWizard && tier == 2)
+        
+        if (tier == 2 && EnemyDeath.money >= 1000)
         {
-            Debug.Log("is Wizard!");
-            projectile.changeSprite();
-            projectile.gameObject.GetComponent<SpriteRenderer>().sprite = projectile.fireBall;
-        }
-        if (tier == 2)
-        {
-            
+            if (isWizard)
+            {
+                // Debug.Log("is Wizard!");
+                projectile.changeSprite();
+                projectile.gameObject.GetComponent<SpriteRenderer>().sprite = projectile.fireBall;
+            }
+            enemyDeathScript.LoseMoney(1000);
+            upgradeStats();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier3;
             tier = 3;
             if (isLookout)
@@ -268,8 +273,10 @@ public class Tower : MonoBehaviour
             }
             UpgradeOverlay.HideButton();
         }
-        if (tier == 1)
+        if (tier == 1 && EnemyDeath.money >= 300)
         {
+            upgradeStats();
+            enemyDeathScript.LoseMoney(300);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier2;
             tier = 2;
             if (isLookout)
@@ -279,19 +286,20 @@ public class Tower : MonoBehaviour
             }
         }
         
-        if (tier <= 3)
-        {
-            range += (range / 6);
-            damageAmount += (damageAmount * 0.5f);
-            if (isBoulder)
-            {
-               
-            }
+        
+    }
 
-            if(reduceEnemySpeed < 1)
-            {
-                reduceEnemySpeed = (reduceEnemySpeed * 0.5f);
-            }
+    private void upgradeStats()
+    {
+        range += (range / 6);
+        damageAmount += (damageAmount * 0.5f);
+        if (isBoulder)
+        {
+            projectileType.UpgradeBoulder();
+        }
+        if (reduceEnemySpeed < 1)
+        {
+            reduceEnemySpeed = (reduceEnemySpeed * 0.5f);
         }
     }
 

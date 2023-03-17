@@ -7,7 +7,7 @@ namespace Utils
 {
     public class Projectile : MonoBehaviour
     {
-
+        Tower tower;
         EnemyMovement enemyMovement;
         public Sprite magicBolt;
         public Sprite fireBall;
@@ -16,7 +16,7 @@ namespace Utils
         float moveSpeed = 10f;
         [SerializeField]
         private float boulderRange;
-
+        public float boulderDamage;
 
         public bool isWizardProjectile;
         public Sprite upgradeWizard;
@@ -40,23 +40,33 @@ namespace Utils
         private float reducedSpeed;
         public bool isBoulderProjectile;
 
+        public void UpgradeBoulder()
+        {
+            boulderDamage += boulderDamage;
+        }
 
         public void changeSprite()
         {
 
-            Debug.Log("ChangeSprite!!");
+           // Debug.Log("ChangeSprite!!");
             //this.gameObject.GetComponent<SpriteRenderer>().sprite = fireBall;
 
 
         }
+        private void Start()
+        {
+           
+        }
 
         private void Awake()
         {
+            boulderDamage = 5f;
             if (isWizardProjectile)
             {
-                Debug.Log("Reset Sprite");
+               // Debug.Log("Reset Sprite");
                 //this.gameObject.GetComponent<SpriteRenderer>().sprite = magicBolt;
             }
+           
         }
 
         private Vector3 targetPosition;
@@ -99,10 +109,7 @@ namespace Utils
 
         }
 
-        private void BoulderUpgrade()
-        {
-
-        }
+     
 
 
         void OnTriggerEnter2D(Collider2D collision)
@@ -117,7 +124,7 @@ namespace Utils
                 enemyMovement = enemyCollide.GetComponent<EnemyMovement>();
                 if (isBoulderProjectile)
                 {
-                   enemyMovement.DealBoulder(transform.position, boulderRange);
+                   enemyMovement.DealBoulder(transform.position, boulderRange, boulderDamage);
                 }
                 enemyMovement.Damage(damageAmount, reducedSpeed);
                 Destroy(gameObject);

@@ -11,6 +11,8 @@ namespace Utils
     {
         private GridController gridController;
 
+        public EnemyDeath enemyDeath;
+
         public bool tileOccupied;
 
 
@@ -84,7 +86,7 @@ namespace Utils
         }
         private void Awake()
         {
-
+            enemyDeath = new EnemyDeath();
 
             ClickedButtonName = null;
             gridController = FindObjectOfType<GridController>();
@@ -125,43 +127,46 @@ namespace Utils
 
             if (Input.GetMouseButtonDown(1))
             {
-
-                if (gridController.GetTileType() == false)
+                if (EnemyDeath.money >= 100)
                 {
-                    Debug.Log("Buildable Tile");
-                    if (ClickedButtonName.Equals("Wizard"))
+                    if (gridController.GetTileType() == false)
                     {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerWizard();
-                    }
-                    if (ClickedButtonName.Equals("Archer"))
-                    {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerArcher();
-                    }
-                    if (ClickedButtonName.Equals("Cannon"))
-                    {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerCannon();
-                    }
-                    if (ClickedButtonName.Equals("Druid"))
-                    {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerDruid();
-                    }
-                    if (ClickedButtonName.Equals("Boulder"))
-                    {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerBoulder();
-                    }
-                    if (ClickedButtonName.Equals("Lookout"))
-                    {
-                        Debug.Log(ClickedButtonName + " is clicked!");
-                        SpawnTowerLookout();
-                    }
-                    //Debug.Log("SPAWN");
-                    //SpawnTower();
+                        Debug.Log("Buildable Tile");
+                        enemyDeath.LoseMoney(100);
+                        if (ClickedButtonName.Equals("Wizard"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerWizard();
+                        }
+                        if (ClickedButtonName.Equals("Archer"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerArcher();
+                        }
+                        if (ClickedButtonName.Equals("Cannon"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerCannon();
+                        }
+                        if (ClickedButtonName.Equals("Druid"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerDruid();
+                        }
+                        if (ClickedButtonName.Equals("Boulder"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerBoulder();
+                        }
+                        if (ClickedButtonName.Equals("Lookout"))
+                        {
+                            Debug.Log(ClickedButtonName + " is clicked!");
+                            SpawnTowerLookout();
+                        }
+                        //Debug.Log("SPAWN");
+                        //SpawnTower();
 
+                    }
                 }
                 else
                 {
