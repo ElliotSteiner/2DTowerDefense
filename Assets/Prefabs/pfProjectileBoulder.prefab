@@ -103,6 +103,7 @@ MonoBehaviour:
   fireBall: {fileID: 0}
   moveSpeed: 10
   boulderRange: 5
+  boulderDamage: 5
   isWizardProjectile: 0
   upgradeWizard: {fileID: 0}
   isBoulderProjectile: 1

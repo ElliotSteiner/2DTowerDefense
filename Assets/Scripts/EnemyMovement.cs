@@ -8,12 +8,18 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     int maxHealth;
+    [SerializeField]
+    private int goldAmount;
 
     private HealthBar healthBar;
     private Tower tower;
     private float enemySpeed;
 
-    public float boulderDamage;
+    public bool isMinor;
+    public bool isMedium;
+
+    public EnemyDeath enemyDeathScript;
+
     public float loopDuration = 10.0f;
     private float time = 0.0f;
 
@@ -37,7 +43,6 @@ public class EnemyMovement : MonoBehaviour
         {
 
             if (enemy.IsDead() || enemy == null) continue;
-
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
                 //Debug.Log("IN RANGE");
@@ -77,7 +82,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
-        boulderDamage = 5f;
+        enemyDeathScript = new EnemyDeath();
         enemySpeed = speed;
         enemyList.Add(this);
         //Debug.Log(healthSystem.GetHealth());
@@ -85,19 +90,20 @@ public class EnemyMovement : MonoBehaviour
         healthSystem.SetHealthMax(maxHealth, true);
         //SetEnemyType();
         tower = FindObjectOfType<Tower>();
+       
 
     }
 
-    
-
-    
-
-   public void BoulderSet(float boulderDamage)
+    private void GetGold(int goldValue)
     {
-        
+        enemyDeathScript.GiveMoney(goldValue);
     }
 
-    public void DealBoulder(Vector3 position, float maxRange)
+    
+
+  
+
+    public void DealBoulder(Vector3 position, float maxRange, float damage)
     {
         foreach(EnemyMovement enemy in enemyList)
         {
@@ -105,7 +111,7 @@ public class EnemyMovement : MonoBehaviour
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
                 //enemy.Damage(tower.damageAmount, tower.reduceEnemySpeed);
-                enemy.Damage(boulderDamage, 1);
+                enemy.Damage(damage, 1);
             }
         }
     }
@@ -142,7 +148,7 @@ public class EnemyMovement : MonoBehaviour
     public void Damage(float damageAmount, float reducedSpeed)
     {
         healthSystem.Damage(damageAmount);
-        Debug.Log(healthSystem.GetHealthPercent());
+       // Debug.Log(healthSystem.GetHealthPercent());
         healthBar.SetSize(healthSystem.GetHealthPercent());
         if (reducedSpeed < 1)
         {
@@ -159,8 +165,9 @@ public class EnemyMovement : MonoBehaviour
 
         if (IsDead())
         {
-            
+            GetGold(goldAmount);
             Destroy(gameObject);
+            
             //foreach (EnemyMovement enemy in enemyList)
             //{
                // Debug.Log("NEW LIST: " + enemy.ToString());
@@ -196,6 +203,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+       
+
         transform.position = Vector2.MoveTowards(transform.position, wpoints.waypoints[waypointIndex].position, enemySpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, wpoints.waypoints[waypointIndex].position) < 0.1f) {

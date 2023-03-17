@@ -3,28 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
-public class EnemyDeath : MonoBehaviour
-{
-    public static float money = 200;
-    public static float gems = 0;
-
-    Random rnd = new Random();
 
 
-    void Update()
+    public class EnemyDeath : MonoBehaviour
     {
-        if (Health.currentHealth <= 0)
+        public static float money = 200;
+        public static float gems = 0;
+
+        Random rnd = new Random();
+
+        public void GiveMoney(int gold)
         {
-            if (gameObject.tag == "MinorEnemy")
-            {
-                money += 5;
-                Debug.Log("Your Wealth: " + money);
-            }
-            if (gameObject.tag == "MediumEnemy")
-            {
-                money += 15;
-                Debug.Log("Your Wealth: " + money);
-            }
+            money += gold;
+            Debug.Log(money);
+            //if (gameObject.isMinor)
+            //{
+            //    money += 5;
+            //    Debug.Log("Your Wealth: " + money);
+            //}
+            //if (gameObject.isMedium)
+            //{
+            //    money += 15;
+            //    Debug.Log("Your Wealth: " + money);
+            //}
             int randNum = rnd.Next(1, 11);
             Debug.Log("Random #: " + randNum);
             if (randNum < 8)
@@ -32,7 +33,19 @@ public class EnemyDeath : MonoBehaviour
                 gems += 100;
                 Debug.Log("Gems: " + gems);
             }
-            Destroy(gameObject);
+        }
+    public void LoseMoney(int gold)
+    {
+        money -= gold;
+       
+    }
+        void Update()
+        {
+            //if (Health.currentHealth <= 0)
+            //{
+
+            //    Destroy(gameObject);
+            //}
         }
     }
-}
+

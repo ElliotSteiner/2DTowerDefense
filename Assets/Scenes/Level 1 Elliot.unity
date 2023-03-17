@@ -2903,6 +2903,8 @@ GameObject:
   - component: {fileID: 78417940}
   - component: {fileID: 78417939}
   - component: {fileID: 78417938}
+  - component: {fileID: 78417942}
+  - component: {fileID: 78417943}
   m_Layer: 8
   m_Name: Cannon
   m_TagString: Untagged
@@ -3041,6 +3043,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78417936}
   m_CullTransparentMesh: 1
+--- !u!61 &78417942
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78417936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05230713, y: 0.07940674}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 240.13318, y: 74.0365}
+  m_EdgeRadius: 0
+--- !u!114 &78417943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78417936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &92018082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,6 +5138,8 @@ GameObject:
   - component: {fileID: 579540571}
   - component: {fileID: 579540570}
   - component: {fileID: 579540569}
+  - component: {fileID: 579540573}
+  - component: {fileID: 579540574}
   m_Layer: 8
   m_Name: Archer
   m_TagString: Untagged
@@ -5235,6 +5278,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579540567}
   m_CullTransparentMesh: 1
+--- !u!61 &579540573
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579540567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19146729, y: 0.13070679}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 239.91345, y: 74.30658}
+  m_EdgeRadius: 0
+--- !u!114 &579540574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579540567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &593061680
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,6 +5507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20ce7e01b7ddb343a92f2ed24a0d857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDeath: {fileID: 0}
   tileOccupied: 0
   xAlign: 1
   yAlign: 2
@@ -9327,6 +9410,8 @@ GameObject:
   - component: {fileID: 1087486323}
   - component: {fileID: 1087486322}
   - component: {fileID: 1087486321}
+  - component: {fileID: 1087486325}
+  - component: {fileID: 1087486326}
   m_Layer: 8
   m_Name: Boulder
   m_TagString: Untagged
@@ -9465,6 +9550,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087486319}
   m_CullTransparentMesh: 1
+--- !u!61 &1087486325
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087486319}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.29467773, y: 0.071746826}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 239.71777, y: 73.83893}
+  m_EdgeRadius: 0
+--- !u!114 &1087486326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087486319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &1121983754
 GameObject:
   m_ObjectHideFlags: 0
@@ -10192,6 +10316,8 @@ GameObject:
   - component: {fileID: 1266930735}
   - component: {fileID: 1266930734}
   - component: {fileID: 1266930733}
+  - component: {fileID: 1266930737}
+  - component: {fileID: 1266930738}
   m_Layer: 8
   m_Name: Wizard
   m_TagString: Untagged
@@ -10330,6 +10456,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266930731}
   m_CullTransparentMesh: 1
+--- !u!61 &1266930737
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266930731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16748047, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 240.46973, y: 74.1698}
+  m_EdgeRadius: 0
+--- !u!114 &1266930738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266930731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &1267126716
 GameObject:
   m_ObjectHideFlags: 0
@@ -10343,6 +10508,8 @@ GameObject:
   - component: {fileID: 1267126720}
   - component: {fileID: 1267126719}
   - component: {fileID: 1267126718}
+  - component: {fileID: 1267126722}
+  - component: {fileID: 1267126723}
   m_Layer: 8
   m_Name: Lookout
   m_TagString: Untagged
@@ -10481,6 +10648,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267126716}
   m_CullTransparentMesh: 1
+--- !u!61 &1267126722
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267126716}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02154541, y: -0.17066956}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 240.1283, y: 74.20175}
+  m_EdgeRadius: 0
+--- !u!114 &1267126723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267126716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &1306188491
 GameObject:
   m_ObjectHideFlags: 0
@@ -11208,6 +11414,8 @@ GameObject:
   - component: {fileID: 1520427448}
   - component: {fileID: 1520427447}
   - component: {fileID: 1520427446}
+  - component: {fileID: 1520427450}
+  - component: {fileID: 1520427451}
   m_Layer: 8
   m_Name: Druid
   m_TagString: Untagged
@@ -11346,6 +11554,45 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520427444}
   m_CullTransparentMesh: 1
+--- !u!61 &1520427450
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520427444}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13476562, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 239.85791, y: 73.70764}
+  m_EdgeRadius: 0
+--- !u!114 &1520427451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520427444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2ad5a3fb4bc1a4a9bfb3396c8d6b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 3515621673378606056, guid: b6a9e8d4a6b36a34d878142fb256e163, type: 3}
 --- !u!1 &1521252481
 GameObject:
   m_ObjectHideFlags: 0
@@ -13699,7 +13946,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1334769908676029754, guid: 5c25fb24d1d552a42a48cb0f8c1cef2e, type: 3}
+      - m_Target: {fileID: 1605661201}
         m_TargetAssemblyTypeName: Utils.WaveSpawner, Assembly-CSharp
         m_MethodName: OnButtonPress
         m_Mode: 1

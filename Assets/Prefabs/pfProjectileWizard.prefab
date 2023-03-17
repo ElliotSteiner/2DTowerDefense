@@ -102,8 +102,11 @@ MonoBehaviour:
   magicBolt: {fileID: 21300000, guid: 689d5d543286bc644962e5857330f7dc, type: 3}
   fireBall: {fileID: 21300000, guid: 51719b780edf2f140aa2b67a7d540445, type: 3}
   moveSpeed: 10
+  boulderRange: 0
+  boulderDamage: 0
   isWizardProjectile: 1
   upgradeWizard: {fileID: 21300000, guid: 51719b780edf2f140aa2b67a7d540445, type: 3}
+  isBoulderProjectile: 0
 --- !u!58 &-7673475668680844424
 CircleCollider2D:
   m_ObjectHideFlags: 0
