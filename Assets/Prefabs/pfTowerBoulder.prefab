@@ -232,6 +232,9 @@ MonoBehaviour:
   Tier2: {fileID: 21300000, guid: ee82af0c7bd1a1f4d84a4b59cb0072c2, type: 3}
   Tier3: {fileID: 21300000, guid: 594dd877d410f8845a9e22fe5f585227, type: 3}
   projectileType: {fileID: -4533513502947159093, guid: a921222f5ddb0a14094eaf71f3c6eaad, type: 3}
+  tooltip: {fileID: 0}
+  enemyDeathScript: {fileID: 0}
+  Upgrader: {fileID: 7291950017071611906, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
   tier: 0
   damageAmount: 20
   range: 4
