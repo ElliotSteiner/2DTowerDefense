@@ -14,8 +14,11 @@ public class Tower : MonoBehaviour
     public Sprite Tier2;
     public Sprite Tier3;
     public Projectile projectileType;
+    public TooltipTrigger tooltip;
 
     public EnemyDeath enemyDeathScript;
+
+    public GameObject Upgrader;
 
     public int tier;
 
@@ -135,6 +138,7 @@ public class Tower : MonoBehaviour
 
     private void Awake()
     {
+        tooltip = Upgrader.GetComponent<TooltipTrigger>();
         Debug.Log(EnemyDeath.money);
         enemyDeathScript = new EnemyDeath();
         enemyMovement = gameObject.GetComponent<EnemyMovement>();
@@ -273,8 +277,9 @@ public class Tower : MonoBehaviour
             }
             UpgradeOverlay.HideButton();
         }
-        if (tier == 1 && EnemyDeath.money >= 300)
+        if (tier == 1 && EnemyDeath.money >= 30)
         {
+           
             upgradeStats();
             enemyDeathScript.LoseMoney(300);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier2;
@@ -284,6 +289,7 @@ public class Tower : MonoBehaviour
                 rangeIncrease = 0.75f;
                 speedIncrease = 0.75f;
             }
+            tooltip.ChangeText();
         }
         
         
@@ -306,10 +312,13 @@ public class Tower : MonoBehaviour
     private void OnMouseEnter()
     {
         Tower tower = gameObject.GetComponent<Tower>();
+
+        
         if (tower.tier != 3)
         {
             UpgradeOverlay.ShowButton();
         }
+        
         else if(tower.tier == 3)
         {
             UpgradeOverlay.HideButton();
