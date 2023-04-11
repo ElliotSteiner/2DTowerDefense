@@ -8,26 +8,21 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public string content;
     public string header;
+
     
 
     public void Awake()
     {
-       
-        if (content.Contains("Upgrades"))
-        {
 
-            content = "Upgrades Tower Damage and Range <br> 300 Gold";
-
-        }
-    }
-    public void Update()
-    {
-        
+      
         
     }
+
+  
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        Debug.Log(content);
         TooltipSystem.Show(content, header);
     }
 
@@ -35,16 +30,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         TooltipSystem.Hide();
     }
-    public void ChangeText()
-    {
-        
-        
-        
-        if (content.Contains("Upgrades"))
-        {
 
-            content = "Upgrades Tower Damage and Range <br> 1000 Gold";
-
-        }
-    }
+    
+   
 }

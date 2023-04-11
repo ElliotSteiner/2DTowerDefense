@@ -41,7 +41,7 @@ namespace Utils
             
 
             Vector3Int mousePos = GetMousePosition();
-
+          
             
 
             if (!mousePos.Equals(previousMousePos))
@@ -53,11 +53,16 @@ namespace Utils
                 //GetTileType();
                 if(GetTileType() == false)
                 {
+                    mousePos.x += 7;
+                    mousePos.y -= 7;
+                    
                     interactiveMap.SetTile(previousMousePos, null);
                     interactiveMap.SetTile(mousePos, hoverTile);
                 }
                 if (GetTileType() == true)
                 {
+                    mousePos.x += 7;
+                    mousePos.y -= 7;
                     interactiveMap.SetTile(previousMousePos, null);
                     interactiveMap.SetTile(mousePos, redHoverTile);
                 }

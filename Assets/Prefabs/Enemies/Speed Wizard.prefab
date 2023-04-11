@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7042926129845492328}
   - component: {fileID: 3557958110059061413}
   m_Layer: 7
-  m_Name: EnemyMinor
+  m_Name: Speed Wizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

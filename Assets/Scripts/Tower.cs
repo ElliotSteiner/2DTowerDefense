@@ -266,7 +266,6 @@ public class Tower : MonoBehaviour
                 projectile.changeSprite();
                 projectile.gameObject.GetComponent<SpriteRenderer>().sprite = projectile.fireBall;
             }
-            enemyDeathScript.LoseMoney(1000);
             upgradeStats();
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier3;
             tier = 3;
@@ -276,20 +275,23 @@ public class Tower : MonoBehaviour
                 speedIncrease = 1f;
             }
             UpgradeOverlay.HideButton();
+            enemyDeathScript.LoseMoney(1000);
         }
-        if (tier == 1 && EnemyDeath.money >= 30)
+        if (tier == 1 && EnemyDeath.money >= 300)
         {
            
             upgradeStats();
             enemyDeathScript.LoseMoney(300);
+            
             this.gameObject.GetComponent<SpriteRenderer>().sprite = Tier2;
             tier = 2;
+            
             if (isLookout)
             {
                 rangeIncrease = 0.75f;
                 speedIncrease = 0.75f;
             }
-            tooltip.ChangeText();
+            
         }
         
         

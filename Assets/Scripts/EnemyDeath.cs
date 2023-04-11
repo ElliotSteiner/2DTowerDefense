@@ -7,7 +7,7 @@ using Random = System.Random;
 
     public class EnemyDeath : MonoBehaviour
     {
-        public static float money = 200;
+        public static float money = 500;
         public static float gems = 0;
 
         Random rnd = new Random();

@@ -132,11 +132,12 @@ namespace Utils
                     if (gridController.GetTileType() == false)
                     {
                         Debug.Log("Buildable Tile");
-                        enemyDeath.LoseMoney(100);
+                       
                         if (ClickedButtonName.Equals("Wizard"))
                         {
                             Debug.Log(ClickedButtonName + " is clicked!");
                             SpawnTowerWizard();
+                            
                         }
                         if (ClickedButtonName.Equals("Archer"))
                         {
@@ -163,6 +164,7 @@ namespace Utils
                             Debug.Log(ClickedButtonName + " is clicked!");
                             SpawnTowerLookout();
                         }
+                        
                         //Debug.Log("SPAWN");
                         //SpawnTower();
 
@@ -325,6 +327,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerWizard, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else
@@ -383,6 +386,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerArcher, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else
@@ -442,6 +446,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerCannon, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else
@@ -501,6 +506,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerDruid, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else
@@ -559,6 +565,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerLookout, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else
@@ -617,6 +624,7 @@ namespace Utils
 
                 Debug.Log("BUILD");
                 Instantiate(GameAssets.i.pfTowerBoulder, spawnPosition, Quaternion.identity);
+                enemyDeath.LoseMoney(100);
 
             }
             else

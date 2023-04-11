@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the cannon!
+  content: Slow speed with high damage | 200 Gold
   header: Cannon
 --- !u!61 &78417943
 BoxCollider2D:
@@ -3150,8 +3150,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289901234
+  m_fontColor: {r: 0.69803923, g: 0.69803923, b: 0.69803923, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3175,7 +3175,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3731,8 +3731,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 556036285}
   m_HandleRect: {fileID: 556036284}
   m_Direction: 0
-  m_Value: 0.000024627423
-  m_Size: 0.71618754
+  m_Value: 0.000024627407
+  m_Size: 0.7161874
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5298,7 +5298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the archer!
+  content: Fast speed with low damage | 200 Gold
   header: Archer
 --- !u!61 &579540574
 BoxCollider2D:
@@ -9571,7 +9571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the boulder!
+  content: Slow speed with high damage and AOE damage | 200 Gold
   header: Boulder
 --- !u!61 &1087486326
 BoxCollider2D:
@@ -9652,7 +9652,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.0615096
+  orthographic size: 5.0262713
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10099,6 +10099,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209850400}
   m_CullTransparentMesh: 1
+--- !u!1 &1211792589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7291950017071611906, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+  m_PrefabInstance: {fileID: 7291950017194378524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1224972631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10275,9 +10280,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32.149963, y: 613.8258}
+  m_AnchoredPosition: {x: 67.630005, y: 650.28894}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.58325523, y: 1.0683572}
+  m_Pivot: {x: 0.635224, y: 1.1021194}
 --- !u!114 &1247881168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10369,7 +10374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.97539777, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.9703715, b: 0.6839622, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10638,7 +10643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the wizard!
+  content: Medium Speed with Medium Damage | 200 Gold
   header: Wizard
 --- !u!61 &1266930738
 BoxCollider2D:
@@ -10831,7 +10836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the lookout!
+  content: Increases range and speed of other towers | 200 Gold
   header: Lookout
 --- !u!61 &1267126723
 BoxCollider2D:
@@ -11835,7 +11840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: This is the druid!
+  content: Slows enemies, but does little damage | 200 Gold
   header: Druid
 --- !u!61 &1520427451
 BoxCollider2D:
@@ -12396,8 +12401,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4289901234
+  m_fontColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12421,7 +12426,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12490,11 +12495,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
+    enemy: {fileID: 7042926129845492330, guid: 5ea10cfa7cee14741b46d02e13640684, type: 3}
     count: 2
     rate: 0.8
   - name: Wave 2
-    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
+    enemy: {fileID: 7042926129845492330, guid: 94dd425ed7bd4b9478ef84cf14139dba, type: 3}
     count: 4
     rate: 1
   - name: Wave 3
@@ -12502,7 +12507,7 @@ MonoBehaviour:
     count: 8
     rate: 1.5
   - name: Wave 4
-    enemy: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
+    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
     count: 4
     rate: 1
   spawnPointOne: {fileID: 1869383544}
@@ -13384,7 +13389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -391.22186, y: 146.82996}
+  m_AnchoredPosition: {x: -391.22192, y: 146.82996}
   m_SizeDelta: {x: -1682.4438, y: -983.1738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729202561
@@ -16467,8 +16472,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2068001699}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2068001699}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpgradeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpgradeTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UpgradeOverlay, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UpgradeOverlay, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611964, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611967, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1211792589}
+    - target: {fileID: 7291950017071611967, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: header
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7291950017071611967, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
+      propertyPath: content
+      value: '<align="center">Upgrades Tower Damage and Range <br> Upgrade 1: 300
+        Gold<br> Upgrade 2: 1000 Gold'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
