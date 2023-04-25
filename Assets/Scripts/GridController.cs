@@ -16,6 +16,11 @@ namespace Utils
         [SerializeField] private Tile hoverTile = null;
         [SerializeField] private Tile redHoverTile = null;
 
+        [SerializeField] private int gridPosMaxX;
+        [SerializeField] private int gridPosMinX;
+        [SerializeField] private int gridPosMaxY;
+        [SerializeField] private int gridPosMinY;
+
         private int[,] gridValue;
 
         [SerializeField]
@@ -38,11 +43,11 @@ namespace Utils
         void Update()
         {
 
-            
+           
 
             Vector3Int mousePos = GetMousePosition();
-          
-            
+            //Debug.Log(mousePos);
+
 
             if (!mousePos.Equals(previousMousePos))
             {
@@ -116,7 +121,7 @@ namespace Utils
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int gridPosition = Tiles.WorldToCell(mousePosition);
             //Debug.Log(gridPosition);
-            if (gridPosition.x < 9 && gridPosition.x > -10 && gridPosition.y > -6 && gridPosition.y < 5)
+            if (gridPosition.x < gridPosMaxX && gridPosition.x > gridPosMinX && gridPosition.y > gridPosMinY && gridPosition.y < gridPosMaxY)
             {
                 TileBase tile = Tiles.GetTile(gridPosition);
                 bool path = dataFromTiles[tile].path;

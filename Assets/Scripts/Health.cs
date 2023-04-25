@@ -31,18 +31,22 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
+        
         healthSystem = collision.gameObject.GetComponent<EnemyMovement>();
-       // Debug.Log(healthSystem.enemyHealth);
-        if (healthSystem.enemyHealth == 50)
-        {
-            TakeDamage(1);
-            healthText.text = currentHealth.ToString();
-        }
-        if(healthSystem.enemyHealth == 80)
-        {
-            TakeDamage(2);
-            healthText.text = currentHealth.ToString();
-        }
+        // Debug.Log(healthSystem.enemyHealth);
+
+        TakeDamage(healthSystem.hurtFactor);
+        healthText.text = currentHealth.ToString();
+        //if (healthSystem.enemyHealth == 50)
+        //{
+        //    TakeDamage(1);
+        //    healthText.text = currentHealth.ToString();
+        //}
+        //if(healthSystem.enemyHealth == 80)
+        //{
+        //    TakeDamage(2);
+        //    healthText.text = currentHealth.ToString();
+        //}
         //if (collision.gameObject.tag == "MinorEnemy") {
         //    TakeDamage(1);
         //    healthText.text = currentHealth.ToString();

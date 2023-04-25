@@ -26,6 +26,10 @@ namespace Utils
             public Transform enemy;
             public int count;
             public float rate;
+
+            public Transform enemy2;
+            public int count2;
+            public float rate2;
         }
 
         public Wave[] waves;
@@ -139,7 +143,8 @@ namespace Utils
 
             if (nextWave + 1 > waves.Length - 1)
             {
-                SceneManager.LoadScene(sceneBuildIndex: 2);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                EnemyDeath.money = 500;
             }
             else
             {
@@ -171,10 +176,25 @@ namespace Utils
                 SpawnEnemy(_wave.enemy);
                 yield return new WaitForSeconds(1f / _wave.rate);
             }
+            if (_wave.enemy2 != null)
+            {
+                for (int i = 0; i < _wave.count2; i++)
+                {
+                    SpawnEnemy2(_wave.enemy2);
+                    yield return new WaitForSeconds(1f / _wave.rate2);
+                }
+            }
             state = SpawnState.FIGHTING;
         }
 
         void SpawnEnemy(Transform _enemy)
+        {
+            Debug.Log("Spawning Enemy: " + _enemy.name);
+            Transform _sp = spawnPointOne;
+            Instantiate(_enemy, _sp.position, _sp.rotation);
+        }
+
+        void SpawnEnemy2(Transform _enemy)
         {
             Debug.Log("Spawning Enemy: " + _enemy.name);
             Transform _sp = spawnPointOne;

@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private int goldAmount;
 
+    public int hurtFactor;
+
     private HealthBar healthBar;
     private Tower tower;
     private float enemySpeed;
@@ -22,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 
     public float loopDuration = 10.0f;
     private float time = 0.0f;
+
+    private bool gaveMoney;
 
     public int enemyHealth;
 
@@ -82,6 +86,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Awake()
     {
+        gaveMoney = false;
         enemyDeathScript = new EnemyDeath();
         enemySpeed = speed;
         enemyList.Add(this);
@@ -150,6 +155,7 @@ public class EnemyMovement : MonoBehaviour
         healthSystem.Damage(damageAmount);
        // Debug.Log(healthSystem.GetHealthPercent());
         healthBar.SetSize(healthSystem.GetHealthPercent());
+        Debug.Log(healthBar);
         if (reducedSpeed < 1)
         {
             //enemySpeed = speed * reducedSpeed;
@@ -165,8 +171,14 @@ public class EnemyMovement : MonoBehaviour
 
         if (IsDead())
         {
-            GetGold(goldAmount);
             Destroy(gameObject);
+            if (gaveMoney == false)
+            {
+                GetGold(goldAmount);
+                gaveMoney = true;
+            }
+            else;
+           
             
             //foreach (EnemyMovement enemy in enemyList)
             //{

@@ -26,12 +26,12 @@ namespace Utils
        
         
 
-        public static void Create(Vector3 spawnPosition, EnemyMovement enemy, float damageAmount, float reducedSpeed, Transform towerProjectile)
+        public static void Create(Vector3 spawnPosition, EnemyMovement enemy, float damageAmount, float reducedSpeed, Transform towerProjectile, float boulderDamage)
         {
 
             Transform arrowTransform = Instantiate(towerProjectile, spawnPosition, Quaternion.identity);
             Projectile projectile = arrowTransform.GetComponent<Projectile>();
-            projectile.Setup(enemy, damageAmount, reducedSpeed);
+            projectile.Setup(enemy, damageAmount, reducedSpeed, boulderDamage);
 
         }
 
@@ -60,7 +60,7 @@ namespace Utils
 
         private void Awake()
         {
-            boulderDamage = 5f;
+            //boulderDamage = 5f;
             if (isWizardProjectile)
             {
                // Debug.Log("Reset Sprite");
@@ -71,11 +71,12 @@ namespace Utils
 
         private Vector3 targetPosition;
 
-        private void Setup(EnemyMovement enemy, float damageAmount, float reducedSpeed)
+        private void Setup(EnemyMovement enemy, float damageAmount, float reducedSpeed, float boulderDamage)
         {
             this.enemy = enemy;
             this.damageAmount = damageAmount;
             this.reducedSpeed = reducedSpeed;
+            this.boulderDamage = boulderDamage;
         }
 
         private void Update()

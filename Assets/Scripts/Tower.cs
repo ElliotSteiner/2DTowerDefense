@@ -32,6 +32,8 @@ public class Tower : MonoBehaviour
     private float shootTimerMax;
     [SerializeField]
     public float reduceEnemySpeed;
+    [SerializeField]
+    private float boulderDamage;
 
     private float trueRange;
     private float trueSpeed;
@@ -195,7 +197,7 @@ public class Tower : MonoBehaviour
                 {
                     whichTower();
                     // Debug.Log("Enemy in range");
-                    Projectile.Create(projectileShootFromPosition, enemy, damageAmount, reduceEnemySpeed, bullet);
+                    Projectile.Create(projectileShootFromPosition, enemy, damageAmount, reduceEnemySpeed, bullet, boulderDamage);
                     shootTimer = shootTimerMax;
                 }
             }
@@ -260,6 +262,7 @@ public class Tower : MonoBehaviour
         
         if (tier == 2 && EnemyDeath.money >= 1000)
         {
+            boulderDamage += boulderDamage;
             if (isWizard)
             {
                 // Debug.Log("is Wizard!");
@@ -279,7 +282,7 @@ public class Tower : MonoBehaviour
         }
         if (tier == 1 && EnemyDeath.money >= 300)
         {
-           
+            boulderDamage += boulderDamage;
             upgradeStats();
             enemyDeathScript.LoseMoney(300);
             

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = System.Random;
 
 
@@ -12,10 +13,13 @@ using Random = System.Random;
 
         Random rnd = new Random();
 
-        public void GiveMoney(int gold)
+
+    
+    public void GiveMoney(int gold)
         {
+        
             money += gold;
-            Debug.Log(money);
+            Debug.Log(money + " " + gold);
             //if (gameObject.isMinor)
             //{
             //    money += 5;
