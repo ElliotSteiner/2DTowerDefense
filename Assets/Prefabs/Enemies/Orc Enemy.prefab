@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8500427598014566287}
   - component: {fileID: 5237119863960411804}
   - component: {fileID: 1734070597252412735}
+  - component: {fileID: -5833480610198734257}
   - component: {fileID: 7728576848847731768}
   - component: {fileID: 2534870600527820342}
   - component: {fileID: 7441580836563680600}
@@ -106,10 +107,30 @@ MonoBehaviour:
   hurtFactor: 3
   isMinor: 0
   isMedium: 1
+<<<<<<< Updated upstream:Assets/Prefabs/Enemies/Orc Enemy.prefab
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
   speed: 1
+=======
+  enemyDeathScript: {fileID: -5833480610198734257}
+  loopDuration: 10
+  enemyHealth: 80
+  speed: 1.5
+  healthSystem: {fileID: 7441580836563680600}
+--- !u!114 &-5833480610198734257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853114739491888898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba48ab4853350664a890f30fd2ed93c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes:Assets/Prefabs/EnemyMedium.prefab
 --- !u!58 &7728576848847731768
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 1734070597252412735}
 --- !u!1001 &5455027816943414465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,7 +190,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_Name
-      value: pfHealthBar
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_TagString
+      value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_RootOrder

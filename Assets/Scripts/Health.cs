@@ -7,16 +7,17 @@ using TMPro;
 
 public class Health : MonoBehaviour
 {
+
     private EnemyMovement healthSystem;
 
     public TMP_Text healthText;
-    public static int maxHealth = 20;
-    public static int currentHealth;
+    public int maxHealth = 20;
+    public int currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
-        healthText.text = currentHealth.ToString();
+        currentHealth = maxHealth; 
+        UpdateHealthText();
     }
 
     void TakeDamage(int amount) {
@@ -61,5 +62,13 @@ public class Health : MonoBehaviour
         //}
     }
 
-   
+    public void UpdateHealthText()
+    {
+        healthText.text = currentHealth.ToString();
+    }
+
+    public void Heal()
+    {
+        currentHealth += 3;
+    }
 }
