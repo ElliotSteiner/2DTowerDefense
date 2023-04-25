@@ -101,15 +101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  goldAmount: 50
-  hurtFactor: 0
+  maxHealth: 100
+  goldAmount: 100
+  hurtFactor: 4
   isMinor: 1
   isMedium: 0
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
-  speed: 3
+  speed: 5
 --- !u!61 &7042926129845492329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7042926129845492325}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
 
     void TakeDamage(int amount) {
         currentHealth -= amount;
+        Debug.Log(currentHealth);
             if (currentHealth <= 0) {
             currentHealth = 0;
             SceneManager.LoadScene(sceneBuildIndex: 3);
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour
 
         
         healthSystem = collision.gameObject.GetComponent<EnemyMovement>();
+        Debug.Log(healthSystem);
         // Debug.Log(healthSystem.enemyHealth);
 
         TakeDamage(healthSystem.hurtFactor);
