@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7042926129845492330}
   - component: {fileID: 7042926129845492331}
   - component: {fileID: 7042926129845492324}
+  - component: {fileID: -7472960565896801787}
   - component: {fileID: 7042926129845492329}
   - component: {fileID: 7042926129845492328}
   - component: {fileID: 3557958110059061413}
@@ -106,10 +107,27 @@ MonoBehaviour:
   hurtFactor: 0
   isMinor: 1
   isMedium: 0
+<<<<<<< Updated upstream:Assets/Prefabs/Enemies/Cavalry Enemy.prefab
   enemyDeathScript: {fileID: 0}
+=======
+  enemyDeathScript: {fileID: -7472960565896801787}
+>>>>>>> Stashed changes:Assets/Prefabs/EnemyMinor.prefab
   loopDuration: 10
   enemyHealth: 0
   speed: 3
+  healthSystem: {fileID: 3557958110059061413}
+--- !u!114 &-7472960565896801787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7042926129845492325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba48ab4853350664a890f30fd2ed93c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &7042926129845492329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +162,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7042926129845492325}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -169,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 7042926129845492324}
 --- !u!1001 &562758875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,7 +197,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_Name
-      value: pfHealthBar
+      value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_TagString
+      value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_RootOrder
@@ -234,6 +257,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002164335824348958, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002164335824348958, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
