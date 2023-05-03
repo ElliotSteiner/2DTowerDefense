@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3557958110059061413}
   - component: {fileID: 9108596631411264932}
   m_Layer: 7
-  m_Name: Dark Knight
+  m_Name: EnemyMinorBat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,19 +76,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< Updated upstream:Assets/Prefabs/Enemies/Dark Knight.prefab
-  m_SortingLayerID: 652433363
-  m_SortingLayer: -1
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: d5903675b52f77d47b693f0ef12a09d8, type: 3}
-  m_Color: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 1}
-=======
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 179a5108a13420b489ccee52da9a06a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a763f15e9e85f354ba444e52f062ab08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
->>>>>>> Stashed changes:Assets/Prefabs/EnemyMinor.prefab
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,7 +104,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   goldAmount: 50
-  hurtFactor: 0
   isMinor: 1
   isMedium: 0
   enemyDeathScript: {fileID: 0}
@@ -136,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.93, y: 2.77}
     newSize: {x: 2.54, y: 2.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -227,11 +218,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5956092
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3150139
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.z
