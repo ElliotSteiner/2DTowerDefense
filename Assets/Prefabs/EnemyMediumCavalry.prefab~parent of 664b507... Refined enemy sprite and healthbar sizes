@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7441580836563680600}
   - component: {fileID: 9149059004891324667}
   m_Layer: 7
-  m_Name: E_Cavalry
+  m_Name: EnemyMediumCavalry
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7853114739491888898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.67, y: -2.19, z: 0}
-  m_LocalScale: {x: 0.28405, y: 0.28405, z: 0.28405}
+  m_LocalScale: {x: 0.53154, y: 0.53154, z: 0.53154}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 823003855168567397}
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 652433363
-  m_SortingLayer: -1
-  m_SortingOrder: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e77c1bd940c8704fad67bf14d55151d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,14 +104,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   goldAmount: 100
-  hurtFactor: 3
   isMinor: 0
   isMedium: 1
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
-  speed: 4
-  healthSystem: {fileID: 0}
+  speed: 1.5
 --- !u!58 &7728576848847731768
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovement: {fileID: 0}
 --- !u!95 &9149059004891324667
 Animator:
   serializedVersion: 4

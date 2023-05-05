@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3557958110059061413}
   - component: {fileID: 9108596631411264932}
   m_Layer: 7
-  m_Name: E_Bat
+  m_Name: EnemyMinorBat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 652433363
-  m_SortingLayer: -1
-  m_SortingOrder: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a763f15e9e85f354ba444e52f062ab08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,16 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  goldAmount: 25
-  hurtFactor: 1
+  maxHealth: 50
+  goldAmount: 50
   isMinor: 1
   isMedium: 0
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
-  speed: 5
-  healthSystem: {fileID: 0}
+  speed: 3
 --- !u!61 &7042926129845492329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovement: {fileID: 0}
 --- !u!95 &9108596631411264932
 Animator:
   serializedVersion: 4
@@ -209,15 +206,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.x
