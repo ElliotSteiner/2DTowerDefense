@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7042926129845492330}
   - component: {fileID: 7042926129845492331}
   - component: {fileID: 7042926129845492324}
-  - component: {fileID: -7472960565896801787}
   - component: {fileID: 7042926129845492329}
   - component: {fileID: 7042926129845492328}
   - component: {fileID: 3557958110059061413}
@@ -107,11 +106,7 @@ MonoBehaviour:
   hurtFactor: 4
   isMinor: 1
   isMedium: 0
-<<<<<<< Updated upstream:Assets/Prefabs/Enemies/Cavalry Enemy.prefab
   enemyDeathScript: {fileID: 0}
-=======
-  enemyDeathScript: {fileID: -7472960565896801787}
->>>>>>> Stashed changes:Assets/Prefabs/EnemyMinor.prefab
   loopDuration: 10
   enemyHealth: 0
   speed: 5
@@ -174,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMovement: {fileID: 7042926129845492324}
 --- !u!1001 &562758875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,11 +178,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
-    - target: {fileID: 2574850642188856825, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
-      propertyPath: m_TagString
-      value: HealthBar
+      value: pfHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_RootOrder
@@ -244,14 +234,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002164335824348958, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002164335824348958, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

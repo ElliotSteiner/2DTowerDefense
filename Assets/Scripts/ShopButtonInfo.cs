@@ -5,8 +5,12 @@ using TMPro;
 
 public class ShopButtonInfo : MonoBehaviour
 {
-
     public int itemID;
-    public GameObject inventoryManager;
     public TMP_Text quantityText;
+    public GameObject inventoryManager;
+
+    void Update()
+    {
+        quantityText.text = inventoryManager.GetComponent<InventoryManager>().shopItems[3, itemID].ToString();
+    }
 }

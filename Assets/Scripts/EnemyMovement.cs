@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     [SerializeField]
-    public int maxHealth;
+    int maxHealth;
     [SerializeField]
     private int goldAmount;
 
@@ -33,10 +33,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
         wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
         enemyHealth = maxHealth;
-        Debug.Log("Health when movement script starts: " + enemyHealth);
     }
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
@@ -82,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Waypoints wpoints;
 
-    public EnemyHealth healthSystem;
+    private EnemyHealth healthSystem;
 
     private int waypointIndex;
 
@@ -97,6 +95,8 @@ public class EnemyMovement : MonoBehaviour
         healthSystem.SetHealthMax(maxHealth, true);
         //SetEnemyType();
         tower = FindObjectOfType<Tower>();
+       
+
     }
 
     private void GetGold(int goldValue)
@@ -152,14 +152,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void Damage(float damageAmount, float reducedSpeed)
     {
-        Debug.Log("Health when damage is called: " + enemyHealth);
-        healthSystem.Damage(damageAmount, enemyHealth);
-        enemyHealth = (int)healthSystem.GetHealth();
-        Debug.Log("Health after damage is done and code comes back to movement script:" + enemyHealth);
-        Debug.Log("If code tries to calculate for Healthbar: " + healthSystem.GetHealthPercent());
-        healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
-  
+        healthSystem.Damage(damageAmount);
+       // Debug.Log(healthSystem.GetHealthPercent());
         healthBar.SetSize(healthSystem.GetHealthPercent());
         Debug.Log(healthBar);
         if (reducedSpeed < 1)

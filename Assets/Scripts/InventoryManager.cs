@@ -10,20 +10,9 @@ public class InventoryManager : MonoBehaviour
     public float coins;
     public DraggableItem draggableItem;
     public GameObject eventSystem;
-
     public GameObject itemOne;
-    public TMP_Text textOne;
-
     public GameObject itemTwo;
-    public TMP_Text textTwo;
-    
     public GameObject itemThree;
-    public TMP_Text textThree;
-
-    public Health healthScript;
-
-    public GameObject fireEffect;
-    public FireOrb fireOrbScript;
 
     //The size of this array is just for extra storage. Many of those slots are empty
     public int[,] shopItems = new int[6, 6];
@@ -49,38 +38,9 @@ public class InventoryManager : MonoBehaviour
 
     public void ItemUse(int itemID)
     {
-        if (itemID == 1)
-        {
-            shopItems[3, 1]--;
-            textOne.text = shopItems[3, 1].ToString();
-            if (shopItems[3, itemID] <= 0)
-            {
-                shopItems[3, itemID] = 0;
-                textOne.text = shopItems[3, 1].ToString();
-            }
-        }
-        if (itemID == 2)
-        {
-            shopItems[3, 2]--;
-            textTwo.text = shopItems[3, 2].ToString();
-            if (shopItems[3, itemID] <= 0)
-            {
-                shopItems[3, itemID] = 0;
-                textTwo.text = shopItems[3, 2].ToString();
-            }
-        }
-        if (itemID == 3)
-        {
-            shopItems[3, 3]--;
-            textThree.text = shopItems[3, 3].ToString();
-            if (shopItems[3, itemID] <= 0)
-            {
-                shopItems[3, itemID] = 0;
-                textThree.text = shopItems[3, 3].ToString();
-            }
-        }
+        shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]--;
+        Debug.Log("It works! Item Quantity: " + shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]);
     }
-
 
     public void Purchase()
     {
@@ -93,25 +53,26 @@ public class InventoryManager : MonoBehaviour
             EnemyDeath.gems -= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]++;
             ButtonRef.GetComponent<ShopButtonInfo>().quantityText.text = shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID].ToString();
+            NewItem(ButtonRef);
         }
     }
 
-
-    public void ItemEffect(int itemID, Vector3 position)
-    {
-        if (itemID == 1)//Deal damage to enemies within a certain radius of usage
+    public void NewItem(GameObject ButtonRef) {//These tags are on the inventory slots
+        GameObject newItem;
+        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 1)
         {
-            Instantiate(fireEffect, position, transform.rotation);
+            newItem = Instantiate(itemOne, new Vector3(0, 0, 0), Quaternion.identity);
+            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("FireSpirit").transform,false);
         }
-        if (itemID == 2)//Heal player 3 health
+        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 2)
         {
-            healthScript.Heal();
-            healthScript.UpdateHealthText();
+            newItem = Instantiate(itemTwo, new Vector3(0, 0, 0), Quaternion.identity);
+            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("Hpot").transform, false);
         }
-        if (itemID == 3)//Freeze all enemies in place for a certain amount of time
+        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 3)
         {
-
+            newItem = Instantiate(itemThree, new Vector3(0, 0, 0), Quaternion.identity);
+            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("Frostbane").transform, false);
         }
     }
-
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7110501999498225854}
   - component: {fileID: 9146422323973659040}
   - component: {fileID: 6673079805379090319}
+  - component: {fileID: 6749716212571075447}
   - component: {fileID: 3876283577144582185}
   m_Layer: 5
   m_Name: FrostBaneDraggable
@@ -77,6 +78,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6749716212571075447
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757016754465037732}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d34b09486934dce41a3b9a58de49d27d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3876283577144582185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,3 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 3
+  itemQuantity: 0
+  inventoryManager: {fileID: 0}

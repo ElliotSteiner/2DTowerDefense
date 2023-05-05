@@ -13,7 +13,6 @@ TagManager:
   - Frostbane
   - Hpot
   - FireSpirit
-  - HealthBar
   layers:
   - Default
   - TransparentFX
