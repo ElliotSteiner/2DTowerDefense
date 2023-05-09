@@ -8,11 +8,16 @@ using UnityEngine.EventSystems;
 public class InventoryManager : MonoBehaviour
 {
     public float coins;
-    public DraggableItem draggableItem;
     public GameObject eventSystem;
     public GameObject itemOne;
     public GameObject itemTwo;
     public GameObject itemThree;
+
+    public Health healthScript;
+    public EnemyMovement enemyMovement;
+
+    public GameObject fireEffect;
+    public FireOrb fireOrbScript;
 
     //The size of this array is just for extra storage. Many of those slots are empty
     public int[,] shopItems = new int[6, 6];
@@ -34,6 +39,32 @@ public class InventoryManager : MonoBehaviour
         shopItems[3, 1] = 0;
         shopItems[3, 2] = 0;
         shopItems[3, 3] = 0;
+    }
+
+    IEnumerator Freeze()
+    {
+        for (float x = 0; x < 6; x += 0.2f)
+        {
+            //enemyMovement.Damage(0f, 0.03f);
+            yield return new WaitForSeconds(0.05f);
+        }
+        
+
+        //**--__|Replace these Damage's with Elliots technique for fireOrb. These don't work|__--**\\
+
+
+        yield return new WaitForSeconds(2f);
+        //enemyMovement.Damage(0f, 0.1f);
+        yield return new WaitForSeconds(4f);
+
+        float growthFactor = 0.5f;
+
+        for (float x = 0f; x < 10f; x += 0.4f)
+        {
+            //   enemyMovement.Damage(0f, -0.04);
+            yield return new WaitForSeconds(growthFactor);
+            growthFactor /= 1.2f;
+        }
     }
 
     public void ItemUse(int itemID)

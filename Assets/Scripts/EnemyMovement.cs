@@ -152,10 +152,12 @@ public class EnemyMovement : MonoBehaviour
 
     public void Damage(float damageAmount, float reducedSpeed)
     {
-        healthSystem.Damage(damageAmount);
-       // Debug.Log(healthSystem.GetHealthPercent());
+        healthSystem.Damage(damageAmount, enemyHealth);
+        enemyHealth = (int)healthSystem.GetHealth();
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+  
         healthBar.SetSize(healthSystem.GetHealthPercent());
-        Debug.Log(healthBar);
+
         if (reducedSpeed < 1)
         {
             //enemySpeed = speed * reducedSpeed;
@@ -177,7 +179,7 @@ public class EnemyMovement : MonoBehaviour
                 GetGold(goldAmount);
                 gaveMoney = true;
             }
-            else;
+        //    else;
            
             
             //foreach (EnemyMovement enemy in enemyList)

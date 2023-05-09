@@ -33,7 +33,8 @@ using System;
 
         public void Damage(float damage)
         {
-            health -= damage;
+        health = (float)enemyHealth;
+        health -= damage;
             if (health < 0)
             {
                 health = 0;
@@ -46,7 +47,6 @@ using System;
         {
             this.healthMax = healthMax;
             if (fullHealth) health = healthMax;
-
         }
 
         public bool IsDead()

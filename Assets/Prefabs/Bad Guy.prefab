@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8943185579366992134}
   - component: {fileID: 8943185579366992139}
   - component: {fileID: 8943185579366992138}
+  - component: {fileID: 8261027806191825099}
   m_Layer: 7
   m_Name: Bad Guy
   m_TagString: MinorEnemy
@@ -100,7 +101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba48ab4853350664a890f30fd2ed93c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
 --- !u!114 &8943185579366992134
+=======
+  maxHealth: 50
+  goldAmount: 0
+  hurtFactor: 0
+  isMinor: 0
+  isMedium: 0
+  enemyDeathScript: {fileID: 0}
+  loopDuration: 10
+  enemyHealth: 50
+  speed: 3
+  healthSystem: {fileID: 2528632845124818053}
+--- !u!114 &2528632845124818053
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,11 +127,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   maxHealth: 50
   boulderDamage: 0
   loopDuration: 10
   enemyHealth: 0
   speed: 3
+=======
+  enemyMovement: {fileID: 0}
+>>>>>>> Stashed changes
 --- !u!61 &8943185579366992139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +183,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8261027806191825099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8943185579366992135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fc14ca0268f70b4a99067d58528f439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
