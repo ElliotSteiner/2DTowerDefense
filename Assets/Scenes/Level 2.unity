@@ -12883,9 +12883,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1676.1849, y: -567.052}
+  m_AnchoredPosition: {x: 57.225403, y: 669.01733}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: -0.273013, y: -0.025048176}
+  m_Pivot: {x: 0.6298049, y: 1.1194605}
 --- !u!114 &1247881168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15142,6 +15142,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - name: Wave 7
+    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
+    count: 5
+    rate: 1
+    enemy2: {fileID: 7042926129845492330, guid: eaefa17b92e919d4db954b33fa1a5f95, type: 3}
+    count2: 2
+    rate2: 0.1
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 1
     enemy: {fileID: 7042926129845492330, guid: 5ea10cfa7cee14741b46d02e13640684, type: 3}
     count: 10
@@ -15149,6 +15159,9 @@ MonoBehaviour:
     enemy2: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
     count2: 5
     rate2: 0.5
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 2
     enemy: {fileID: 7042926129845492330, guid: 94dd425ed7bd4b9478ef84cf14139dba, type: 3}
     count: 15
@@ -15156,41 +15169,49 @@ MonoBehaviour:
     enemy2: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
     count2: 10
     rate2: 1
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 3
     enemy: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
     count: 8
     rate: 1.5
-    enemy2: {fileID: 0}
-    count2: 0
-    rate2: 0
+    enemy2: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
+    count2: 5
+    rate2: 1
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 4
-    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
-    count: 4
+    enemy: {fileID: 7042926129845492330, guid: 5ea10cfa7cee14741b46d02e13640684, type: 3}
+    count: 15
     rate: 1
-    enemy2: {fileID: 0}
-    count2: 0
-    rate2: 0
+    enemy2: {fileID: 7042926129845492330, guid: 94dd425ed7bd4b9478ef84cf14139dba, type: 3}
+    count2: 20
+    rate2: 2
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 5
     enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
     count: 4
     rate: 1
-    enemy2: {fileID: 0}
-    count2: 0
-    rate2: 0
+    enemy2: {fileID: 7042926129845492330, guid: 1030e504e4ac1ca45a7f81f33f1388b4, type: 3}
+    count2: 2
+    rate2: 0.5
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   - name: Wave 6
-    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
-    count: 4
-    rate: 1
+    enemy: {fileID: 7042926129845492330, guid: 1030e504e4ac1ca45a7f81f33f1388b4, type: 3}
+    count: 5
+    rate: 0.5
     enemy2: {fileID: 0}
     count2: 0
     rate2: 0
-  - name: Wave 7
-    enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
-    count: 4
-    rate: 1
-    enemy2: {fileID: 0}
-    count2: 0
-    rate2: 0
+    enemy3: {fileID: 0}
+    count3: 0
+    rate3: 0
   spawnPointOne: {fileID: 1869383544}
   timeBetweenWaves: 20
   waveCountdown: 20
@@ -15243,7 +15264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605661200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.31, y: -0.03, z: 0}
+  m_LocalPosition: {x: 17.684, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19245,9 +19266,9 @@ MonoBehaviour:
   hoverTile: {fileID: 11400000, guid: f2c7f7de19f92eb4d84970b3c6923c2e, type: 2}
   redHoverTile: {fileID: 11400000, guid: 37a3dbffa9b59524dbe480c6e784f6b9, type: 2}
   gridPosMaxX: 12
-  gridPosMinX: -12
+  gridPosMinX: -13
   gridPosMaxY: 7
-  gridPosMinY: -7
+  gridPosMinY: -8
   tileDatas:
   - {fileID: 11400000, guid: b70ab5a5021ae2b44b77fde176680592, type: 2}
   - {fileID: 11400000, guid: c14ed0697d5044e4dbf16c435621b3ce, type: 2}

@@ -30,6 +30,10 @@ namespace Utils
             public Transform enemy2;
             public int count2;
             public float rate2;
+
+            public Transform enemy3;
+            public int count3;
+            public float rate3;
         }
 
         public Wave[] waves;
@@ -182,6 +186,14 @@ namespace Utils
                 {
                     SpawnEnemy2(_wave.enemy2);
                     yield return new WaitForSeconds(1f / _wave.rate2);
+                }
+            }
+            if (_wave.enemy3 != null)
+            {
+                for (int i = 0; i < _wave.count3; i++)
+                {
+                    SpawnEnemy2(_wave.enemy3);
+                    yield return new WaitForSeconds(1f / _wave.rate3);
                 }
             }
             state = SpawnState.FIGHTING;
