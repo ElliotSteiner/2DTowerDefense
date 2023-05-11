@@ -102,14 +102,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   goldAmount: 100
+  hurtFactor: 4
   isMinor: 0
   isMedium: 1
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
   speed: 1.5
+  healthSystem: {fileID: 0}
 --- !u!58 &7728576848847731768
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 0}
 --- !u!95 &9149059004891324667
 Animator:
   serializedVersion: 4

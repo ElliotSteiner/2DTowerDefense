@@ -104,12 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   goldAmount: 50
+  hurtFactor: 1
   isMinor: 1
   isMedium: 0
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
   speed: 3
+  healthSystem: {fileID: 0}
 --- !u!61 &7042926129845492329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadfe09b526ae5c4da4e707b6933cb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 0}
 --- !u!95 &9108596631411264932
 Animator:
   serializedVersion: 4
