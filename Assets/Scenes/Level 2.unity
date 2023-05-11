@@ -15203,27 +15203,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 7042926129845492330, guid: 5ea10cfa7cee14741b46d02e13640684, type: 3}
+    enemy: {fileID: 7042926129845492330, guid: f51456e82a0b4394397409c1332457b9, type: 3}
     count: 10
-    rate: 0.75
-    enemy2: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
+    rate: 0.6
+    enemy2: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
     count2: 5
     rate2: 0.5
-    enemy3: {fileID: 0}
-    count3: 0
-    rate3: 0
+    enemy3: {fileID: 7042926129845492330, guid: 367df3b9da03eab4fbe8fc10c03f9266, type: 3}
+    count3: 5
+    rate3: 2
   - name: Wave 2
     enemy: {fileID: 7042926129845492330, guid: 94dd425ed7bd4b9478ef84cf14139dba, type: 3}
     count: 15
     rate: 1
-    enemy2: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
+    enemy2: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
     count2: 10
     rate2: 1
     enemy3: {fileID: 0}
     count3: 0
     rate3: 0
   - name: Wave 3
-    enemy: {fileID: 8500427598014566287, guid: 078a1eb56afc54149bd155521e19b6b7, type: 3}
+    enemy: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
     count: 8
     rate: 1.5
     enemy2: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
@@ -15246,14 +15246,14 @@ MonoBehaviour:
     enemy: {fileID: 7042926129845492330, guid: 5c6d8b75935e0564ca29fc6ac0560e1d, type: 3}
     count: 4
     rate: 1
-    enemy2: {fileID: 7042926129845492330, guid: 1030e504e4ac1ca45a7f81f33f1388b4, type: 3}
+    enemy2: {fileID: 8500427598014566287, guid: 815b0ad5285319642bf0f36a3a86f5f6, type: 3}
     count2: 2
     rate2: 0.5
     enemy3: {fileID: 0}
     count3: 0
     rate3: 0
   - name: Wave 6
-    enemy: {fileID: 7042926129845492330, guid: 1030e504e4ac1ca45a7f81f33f1388b4, type: 3}
+    enemy: {fileID: 8500427598014566287, guid: 815b0ad5285319642bf0f36a3a86f5f6, type: 3}
     count: 5
     rate: 0.5
     enemy2: {fileID: 0}

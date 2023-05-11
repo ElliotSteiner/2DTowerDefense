@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8500427598014566287}
   - component: {fileID: 5237119863960411804}
   - component: {fileID: 1734070597252412735}
-  - component: {fileID: 7728576848847731768}
   - component: {fileID: 2534870600527820342}
   - component: {fileID: 7441580836563680600}
-  - component: {fileID: 938336840258732444}
+  - component: {fileID: 4414191746023709138}
+  - component: {fileID: 4992412243603868116}
   m_Layer: 7
-  m_Name: EnemyMediumOrc
+  m_Name: E_ShieldWizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7853114739491888898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.67, y: -2.19, z: 0}
-  m_LocalScale: {x: 0.53154, y: 0.53154, z: 0.53154}
+  m_LocalPosition: {x: -13.57, y: -2.38, z: 0}
+  m_LocalScale: {x: 0.28405, y: 0.28405, z: 0.28405}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 823003855168567397}
@@ -76,10 +76,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6353f7414e03f314690a21e2bafb80d7, type: 3}
+  m_SortingLayerID: 652433363
+  m_SortingLayer: -1
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 9e6d8d4474a20b64a8fbda5758951702, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,14 +102,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
-  goldAmount: 100
-  hurtFactor: 2
+<<<<<<< HEAD:Assets/Prefabs/EnemyMediumShieldWiz.prefab
+  maxHealth: 100
+  goldAmount: 110
+  hurtFactor: 3
+=======
+  maxHealth: 250
+  goldAmount: 50
+  hurtFactor: 4
+>>>>>>> main:Assets/Prefabs/E_ShieldWizard.prefab
   isMinor: 0
   isMedium: 1
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
+<<<<<<< HEAD:Assets/Prefabs/EnemyMediumShieldWiz.prefab
   speed: 1.5
   healthSystem: {fileID: 0}
 --- !u!58 &7728576848847731768
@@ -128,6 +135,10 @@ CircleCollider2D:
   m_Offset: {x: 0.0025822907, y: 0.0057868226}
   serializedVersion: 2
   m_Radius: 0.23501207
+=======
+  speed: 3
+  healthSystem: {fileID: 0}
+>>>>>>> main:Assets/Prefabs/E_ShieldWizard.prefab
 --- !u!50 &2534870600527820342
 Rigidbody2D:
   serializedVersion: 4
@@ -136,7 +147,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7853114739491888898}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -162,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMovement: {fileID: 0}
---- !u!95 &938336840258732444
+--- !u!95 &4414191746023709138
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -172,7 +183,7 @@ Animator:
   m_GameObject: {fileID: 7853114739491888898}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb59486f16f92f748bd16d9a59dcea96, type: 2}
+  m_Controller: {fileID: 9100000, guid: 00c60e0e02588d545ad4582134f25b53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -182,6 +193,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &4992412243603868116
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7853114739491888898}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.036827326, y: -0.23017347}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.48, y: 4.75}
+    newSize: {x: 5, y: 5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6329603, y: 4.0686855}
+  m_EdgeRadius: 0
 --- !u!1001 &5455027816943414465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,12 +235,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: 2.35
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.z
