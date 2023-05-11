@@ -15408,7 +15408,7 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619226078}
+  m_GameObject: {fileID: 1619226079}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -16446,7 +16446,7 @@ MonoBehaviour:
   coins: {fileID: 677731030}
   gems: {fileID: 1418239422}
   shopGems: {fileID: 1370172858}
---- !u!1 &1619226078
+--- !u!1 &1619226079
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
