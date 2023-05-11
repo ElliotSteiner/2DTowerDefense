@@ -29,8 +29,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, Camera.main.ScreenToWorldPoint(Input.mousePosition).z + 10);
-      //  Debug.Log(position);
-        inventoryManager.ItemEffect(itemID, position);
+        if (inventoryManager.shopItems[3, itemID] > 0)
+        {
+            inventoryManager.ItemEffect(itemID, position);
+        }
         position = transform.position;
         transform.SetParent(parentAfterDrag);
         transform.position = startPoint;
