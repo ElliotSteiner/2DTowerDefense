@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 7853114739491888898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.67, y: -2.19, z: 0}
-  m_LocalScale: {x: 0.53154, y: 0.53154, z: 0.53154}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.26577, y: 0.26577, z: 0.26577}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 823003855168567397}
   m_Father: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 80
-  goldAmount: 100
+  goldAmount: 70
   hurtFactor: 2
   isMinor: 0
   isMedium: 1
@@ -198,12 +198,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.22
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.z
