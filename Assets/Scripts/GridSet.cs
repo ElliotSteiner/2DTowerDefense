@@ -279,26 +279,26 @@ namespace Utils
 
         private void SpawnTowerWizard()
         {
-            CanBuild();
+           // CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
 
             if (gridValues[buildPosX, buildPosY] == 0)
             {
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -314,7 +314,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -339,26 +339,26 @@ namespace Utils
 
         private void SpawnTowerArcher()
         {
-            CanBuild();
+            //CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
 
             if (gridValues[buildPosX, buildPosY] == 0)
             {
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -374,7 +374,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -397,7 +397,7 @@ namespace Utils
 
         private void SpawnTowerCannon()
         {
-            CanBuild();
+           // CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
@@ -407,19 +407,19 @@ namespace Utils
 
 
 
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -435,7 +435,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -457,7 +457,7 @@ namespace Utils
 
         private void SpawnTowerDruid()
         {
-            CanBuild();
+           // CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
@@ -466,19 +466,19 @@ namespace Utils
             {
 
 
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -494,7 +494,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -517,7 +517,7 @@ namespace Utils
 
         private void SpawnTowerLookout()
         {
-            CanBuild();
+            //CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
@@ -526,19 +526,19 @@ namespace Utils
             {
 
 
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -554,7 +554,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -576,7 +576,7 @@ namespace Utils
 
         private void SpawnTowerBoulder()
         {
-            CanBuild();
+           // CanBuild();
 
             int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
             int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
@@ -585,19 +585,19 @@ namespace Utils
             {
 
 
-                if (buildPosX < 17)
+                if (buildPosX < gridWidth)
                 {
                     gridValues[buildPosX + 1, buildPosY] = 1;
                 }
-                if (buildPosX < 17 && buildPosY < 9)
+                if (buildPosX < gridWidth && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX + 1, buildPosY + 1] = 1;
                 }
-                if (buildPosY < 9)
+                if (buildPosY < gridHeight)
                 {
                     gridValues[buildPosX, buildPosY + 1] = 1;
                 }
-                if (buildPosX > 0 && buildPosY < 9)
+                if (buildPosX > 0 && buildPosY < gridHeight)
                 {
                     gridValues[buildPosX - 1, buildPosY + 1] = 1;
                 }
@@ -613,7 +613,7 @@ namespace Utils
                 {
                     gridValues[buildPosX, buildPosY - 1] = 1;
                 }
-                if (buildPosX < 17 && buildPosY > 0)
+                if (buildPosX < gridWidth && buildPosY > 0)
                 {
                     gridValues[buildPosX + 1, buildPosY - 1] = 1;
                 }
@@ -633,58 +633,58 @@ namespace Utils
             }
         }
 
-        private void CanBuild()
-        {
+        //private void CanBuild()
+        //{
 
 
 
-            TowerAdj = 0;
+        //    TowerAdj = 0;
 
-            int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
-            Debug.Log(buildPosX);
-            int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
-            Debug.Log(buildPosY);
+        //    int buildPosX = ((int)GetBuildPosX()) + (gridWidth / 2);
+        //    Debug.Log(buildPosX);
+        //    int buildPosY = ((int)GetBuildPosY()) + (gridHeight / 2);
+        //    Debug.Log(buildPosY);
 
-            if (buildPosX == 0 || gridValues[buildPosX - 1, buildPosY] == 0)
-            {
-                TowerAdj++;
-                Debug.Log("Left Good");
-            }
-            if (buildPosY == 9 || gridValues[buildPosX, buildPosY + 1] == 0)
-            {
-                TowerAdj++;
-                Debug.Log("Top Good");
-            }
-            if (buildPosX == 17 || gridValues[buildPosX + 1, buildPosY] == 0)
-            {
-                TowerAdj++;
-                Debug.Log("Right Good");
-            }
-            if (buildPosY == 0 || gridValues[buildPosX, buildPosY - 1] == 0)
-            {
-                TowerAdj++;
-                Debug.Log("Bottom Good");
-            }
-            if (buildPosX == 17 || buildPosY == 9 || gridValues[buildPosX + 1, buildPosY + 1] == 0 || (buildPosX == 17 && buildPosY == 10))
-            {
-                TowerAdj++;
-                Debug.Log("Top Right Good");
-            }
-            if (buildPosX == 17 || buildPosY == 0 || gridValues[buildPosX + 1, buildPosY - 1] == 0 || (buildPosX == 17 && buildPosY == 0))
-            {
-                TowerAdj++;
-                Debug.Log("Bottom Right Good");
-            }
-            if (buildPosX == 0 || buildPosY == 0 || gridValues[buildPosX - 1, buildPosY - 1] == 0 || (buildPosX == 0 && buildPosY == 0))
-            {
-                TowerAdj++;
-                Debug.Log("Bottom Left Good");
-            }
-            if (buildPosX == 0 || buildPosY == 9 || gridValues[buildPosX - 1, buildPosY + 1] == 0 || (buildPosX == 0 && buildPosY == 10))
-            {
-                TowerAdj++;
-                Debug.Log("Top Left Good");
-            }
-        }
+        //    if (buildPosX == 0 || gridValues[buildPosX - 1, buildPosY] == 0)
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Left Good");
+        //    }
+        //    if (buildPosY == gridHeight || gridValues[buildPosX, buildPosY + 1] == 0)
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Top Good");
+        //    }
+        //    if (buildPosX == gridWidth || gridValues[buildPosX + 1, buildPosY] == 0)
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Right Good");
+        //    }
+        //    if (buildPosY == 0 || gridValues[buildPosX, buildPosY - 1] == 0)
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Bottom Good");
+        //    }
+        //    if (buildPosX == gridWidth || buildPosY == gridHeight || gridValues[buildPosX + 1, buildPosY + 1] == 0 || (buildPosX == gridWidth && buildPosY == 10))
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Top Right Good");
+        //    }
+        //    if (buildPosX == gridWidth || buildPosY == 0 || gridValues[buildPosX + 1, buildPosY - 1] == 0 || (buildPosX == gridWidth && buildPosY == 0))
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Bottom Right Good");
+        //    }
+        //    if (buildPosX == 0 || buildPosY == 0 || gridValues[buildPosX - 1, buildPosY - 1] == 0 || (buildPosX == 0 && buildPosY == 0))
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Bottom Left Good");
+        //    }
+        //    if (buildPosX == 0 || buildPosY == gridHeight || gridValues[buildPosX - 1, buildPosY + 1] == 0 || (buildPosX == 0 && buildPosY == 10))
+        //    {
+        //        TowerAdj++;
+        //        Debug.Log("Top Left Good");
+        //    }
+        //}
     }
 }

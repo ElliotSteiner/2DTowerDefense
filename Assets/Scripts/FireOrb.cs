@@ -20,9 +20,13 @@ public class FireOrb : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        GameObject collidedEnemy = collision.gameObject;
+        Debug.Log(collision.gameObject);
+        if (collidedEnemy.tag == "Enemy")
         {
-            enemyMovement.Damage(5, 1);
+            collidedEnemy.GetComponent<EnemyMovement>().Damage(5, 1);
+            Debug.Log(collision.gameObject);
+           //enemyMovement.Damage(5, 1);
         }
     }
 }

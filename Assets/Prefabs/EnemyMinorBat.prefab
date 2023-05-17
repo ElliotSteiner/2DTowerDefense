@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3557958110059061413}
   - component: {fileID: 9108596631411264932}
   m_Layer: 7
-  m_Name: E_Goblin
+  m_Name: EnemyMinorBat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,10 +76,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 652433363
-  m_SortingLayer: -1
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: d0a5e2d0421b67b40b9aa2d2748d73dd, type: 3}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: a763f15e9e85f354ba444e52f062ab08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,15 +110,7 @@ MonoBehaviour:
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
-<<<<<<< HEAD:Assets/Prefabs/E_Goblin.prefab
-<<<<<<< HEAD:Assets/Prefabs/EnemyMinorGoblin.prefab
   speed: 3
-=======
-  speed: 1
->>>>>>> main:Assets/Prefabs/E_Goblin.prefab
-=======
-  speed: 1
->>>>>>> FixedVersion:Assets/Prefabs/EnemyMinorGoblin.prefab
   healthSystem: {fileID: 0}
 --- !u!61 &7042926129845492329
 BoxCollider2D:
@@ -133,26 +125,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-<<<<<<< HEAD:Assets/Prefabs/E_Goblin.prefab
-  m_Offset: {x: 0.2517662, y: -0.44436163}
-=======
-  m_Offset: {x: 0.26773766, y: -0.38846445}
->>>>>>> FixedVersion:Assets/Prefabs/EnemyMinorGoblin.prefab
+  m_Offset: {x: -0.09160855, y: -0.0051620007}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.57, y: 4.75}
+    oldSize: {x: 3.93, y: 2.77}
     newSize: {x: 2.54, y: 2.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-<<<<<<< HEAD:Assets/Prefabs/E_Goblin.prefab
-  m_Size: {x: 1.8597941, y: 3.6118536}
-=======
-  m_Size: {x: 2.1792119, y: 3.6278257}
->>>>>>> FixedVersion:Assets/Prefabs/EnemyMinorGoblin.prefab
+  m_Size: {x: 0.27867568, y: 1.1363614}
   m_EdgeRadius: 0
 --- !u!50 &7042926129845492328
 Rigidbody2D:
@@ -198,7 +182,7 @@ Animator:
   m_GameObject: {fileID: 7042926129845492325}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f049ab6222823814eb348ccd2a5988e6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5eb371be7b71dbd449e8310f279ee4bd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,23 +209,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 3.520507
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.88
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4674669620308743332, guid: cf89438ef96b2354fa24a1bb951ee3db, type: 3}
       propertyPath: m_LocalPosition.z

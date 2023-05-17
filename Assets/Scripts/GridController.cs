@@ -46,13 +46,14 @@ namespace Utils
            
 
             Vector3Int mousePos = GetMousePosition();
-            //Debug.Log(mousePos);
+            Debug.Log(mousePos);
 
 
             if (!mousePos.Equals(previousMousePos))
             {
                 int buildPosX = ((int)gridSet.GetBuildPosX()) + (gridSet.gridWidth / 2);
                 int buildPosY = ((int)gridSet.GetBuildPosY()) + (gridSet.gridHeight / 2);
+                //Debug.Log(buildPosX + " " + buildPosY);
                 //Debug.Log(gridValue[buildPosX, buildPosY]);
                 //Debug.Log(buildPosX + ", " + buildPosY);
                 //GetTileType();
@@ -72,7 +73,7 @@ namespace Utils
                     interactiveMap.SetTile(mousePos, redHoverTile);
                 }
 
-                if (buildPosX < 18 && buildPosX > -1 && buildPosY > -1 && buildPosY < 10)
+                if (buildPosX < gridSet.gridWidth && buildPosX > -1 && buildPosY > -1 && buildPosY < gridSet.gridHeight)
                
                     if (gridValue[buildPosX, buildPosY] == 1)
                     {
