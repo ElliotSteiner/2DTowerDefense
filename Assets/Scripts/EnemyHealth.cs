@@ -19,7 +19,6 @@ using System;
         {
             this.healthMax = healthMax;
             health = healthMax;
-        Debug.Log("Health when variables are set in health script: " + health);
         }
 
         public float GetHealth()
@@ -36,9 +35,7 @@ using System;
         public void Damage(float damage, int enemyHealth)
         {
         health = (float)enemyHealth;
-        Debug.Log("Health before damage is dealt and I set it equal to other script: " + health);
         health -= damage;
-        Debug.Log("Health after damage: " + health);
             if (health < 0)
             {
                 health = 0;
@@ -51,7 +48,6 @@ using System;
         {
         this.healthMax = healthMax;
             if (fullHealth) health = healthMax;
-        Debug.Log("Health is set to: " + health);
         }
 
         public bool IsDead()

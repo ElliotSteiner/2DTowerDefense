@@ -33,10 +33,8 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
         wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
         enemyHealth = maxHealth;
-        Debug.Log("Health when movement script starts: " + enemyHealth);
     }
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
@@ -152,16 +150,11 @@ public class EnemyMovement : MonoBehaviour
 
     public void Damage(float damageAmount, float reducedSpeed)
     {
-        Debug.Log("Health when damage is called: " + enemyHealth);
         healthSystem.Damage(damageAmount, enemyHealth);
         enemyHealth = (int)healthSystem.GetHealth();
-        Debug.Log("Health after damage is done and code comes back to movement script:" + enemyHealth);
-        Debug.Log("If code tries to calculate for Healthbar: " + healthSystem.GetHealthPercent());
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
   
         healthBar.SetSize(healthSystem.GetHealthPercent());
-        Debug.Log(healthBar);
         if (reducedSpeed < 1)
         {
             //enemySpeed = speed * reducedSpeed;
@@ -183,7 +176,7 @@ public class EnemyMovement : MonoBehaviour
                 GetGold(goldAmount);
                 gaveMoney = true;
             }
-            else;
+           // else;
            
             
             //foreach (EnemyMovement enemy in enemyList)

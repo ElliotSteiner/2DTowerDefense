@@ -4,19 +4,18 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Utils;
 
 public class InventoryManager : MonoBehaviour
 {
-    public float coins;
-    public DraggableItem draggableItem;
+    public WaveSpawner waveSpawner;
+    public EnemyMovement enemyMovement;
     public GameObject eventSystem;
 
     public GameObject itemOne;
     public TMP_Text textOne;
-
     public GameObject itemTwo;
     public TMP_Text textTwo;
-    
     public GameObject itemThree;
     public TMP_Text textThree;
 
@@ -84,8 +83,6 @@ public class InventoryManager : MonoBehaviour
 
     public void Purchase()
     {
-        coins = EnemyDeath.money;
-
         GameObject ButtonRef = EventSystem.current.currentSelectedGameObject;
 
         if (EnemyDeath.gems >= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID])
@@ -110,8 +107,31 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemID == 3)//Freeze all enemies in place for a certain amount of time
         {
-
+            StartCoroutine(Freeze());
         }
+    }
+
+    IEnumerator Freeze()
+    {
+        //put something here to make enemies stop spawning (rate)
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 10; i > 0; i--)
+        {
+            yield return new WaitForSeconds(0.5f);
+            enemyMovement.Damage(0, (float)(0.1 * i));
+        }
+
+        enemyMovement.Damage(0, 0);
+        yield return new WaitForSeconds(4f);
+        enemyMovement.Damage(0, 0);
+
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            enemyMovement.Damage(0, (float)(0.1 * i));
+        }
+        //put something here to make enemies start spawning again (rate)
     }
 
 }

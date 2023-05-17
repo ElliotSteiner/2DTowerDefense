@@ -93,9 +93,6 @@ namespace Utils
             //enemyList.Add(this);
         }
 
-        
-
-
         void Update()
         {
             if (state == SpawnState.FIGHTING)
@@ -219,9 +216,6 @@ namespace Utils
             newWaveTimer.text = " ";
             shopTimer.text = " ";
         }
-
-
-        
 
     }
 }
