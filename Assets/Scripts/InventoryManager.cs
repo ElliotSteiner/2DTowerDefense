@@ -8,19 +8,13 @@ using UnityEngine.EventSystems;
 public class InventoryManager : MonoBehaviour
 {
     public float coins;
-    public DraggableItem draggableItem;
     public GameObject eventSystem;
-
     public GameObject itemOne;
-    public TMP_Text textOne;
-
     public GameObject itemTwo;
-    public TMP_Text textTwo;
-    
     public GameObject itemThree;
-    public TMP_Text textThree;
 
     public Health healthScript;
+    public EnemyMovement enemyMovement;
 
     public GameObject fireEffect;
     public FireOrb fireOrbScript;

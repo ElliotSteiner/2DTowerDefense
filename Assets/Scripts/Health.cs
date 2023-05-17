@@ -61,13 +61,5 @@ public class Health : MonoBehaviour
         //}
     }
 
-    public void UpdateHealthText()
-    {
-        healthText.text = currentHealth.ToString();
-    }
-
-    public void Heal()
-    {
-        currentHealth += 3;
-    }
+   
 }

@@ -31,7 +31,7 @@ using System;
         }
 
 
-        public void Damage(float damage, int enemyHealth)
+        public void Damage(float damage)
         {
         health = (float)enemyHealth;
         health -= damage;
