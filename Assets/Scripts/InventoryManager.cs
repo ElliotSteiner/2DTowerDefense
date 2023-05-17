@@ -8,13 +8,19 @@ using UnityEngine.EventSystems;
 public class InventoryManager : MonoBehaviour
 {
     public float coins;
+    public DraggableItem draggableItem;
     public GameObject eventSystem;
+
     public GameObject itemOne;
+    public TMP_Text textOne;
+
     public GameObject itemTwo;
+    public TMP_Text textTwo;
+    
     public GameObject itemThree;
+    public TMP_Text textThree;
 
     public Health healthScript;
-    public EnemyMovement enemyMovement;
 
     public GameObject fireEffect;
     public FireOrb fireOrbScript;
@@ -41,37 +47,40 @@ public class InventoryManager : MonoBehaviour
         shopItems[3, 3] = 0;
     }
 
-    IEnumerator Freeze()
-    {
-        for (float x = 0; x < 6; x += 0.2f)
-        {
-            //enemyMovement.Damage(0f, 0.03f);
-            yield return new WaitForSeconds(0.05f);
-        }
-        
-
-        //**--__|Replace these Damage's with Elliots technique for fireOrb. These don't work|__--**\\
-
-
-        yield return new WaitForSeconds(2f);
-        //enemyMovement.Damage(0f, 0.1f);
-        yield return new WaitForSeconds(4f);
-
-        float growthFactor = 0.5f;
-
-        for (float x = 0f; x < 10f; x += 0.4f)
-        {
-            //   enemyMovement.Damage(0f, -0.04);
-            yield return new WaitForSeconds(growthFactor);
-            growthFactor /= 1.2f;
-        }
-    }
-
     public void ItemUse(int itemID)
     {
-        shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]--;
-        Debug.Log("It works! Item Quantity: " + shopItems[3, draggableItem.GetComponent<DraggableItem>().itemID]);
+        if (itemID == 1)
+        {
+            shopItems[3, 1]--;
+            textOne.text = shopItems[3, 1].ToString();
+            if (shopItems[3, itemID] <= 0)
+            {
+                shopItems[3, itemID] = 0;
+                textOne.text = shopItems[3, 1].ToString();
+            }
+        }
+        if (itemID == 2)
+        {
+            shopItems[3, 2]--;
+            textTwo.text = shopItems[3, 2].ToString();
+            if (shopItems[3, itemID] <= 0)
+            {
+                shopItems[3, itemID] = 0;
+                textTwo.text = shopItems[3, 2].ToString();
+            }
+        }
+        if (itemID == 3)
+        {
+            shopItems[3, 3]--;
+            textThree.text = shopItems[3, 3].ToString();
+            if (shopItems[3, itemID] <= 0)
+            {
+                shopItems[3, itemID] = 0;
+                textThree.text = shopItems[3, 3].ToString();
+            }
+        }
     }
+
 
     public void Purchase()
     {
@@ -84,26 +93,25 @@ public class InventoryManager : MonoBehaviour
             EnemyDeath.gems -= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]++;
             ButtonRef.GetComponent<ShopButtonInfo>().quantityText.text = shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID].ToString();
-            NewItem(ButtonRef);
         }
     }
 
-    public void NewItem(GameObject ButtonRef) {//These tags are on the inventory slots
-        GameObject newItem;
-        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 1)
+
+    public void ItemEffect(int itemID, Vector3 position)
+    {
+        if (itemID == 1)//Deal damage to enemies within a certain radius of usage
         {
-            newItem = Instantiate(itemOne, new Vector3(0, 0, 0), Quaternion.identity);
-            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("FireSpirit").transform,false);
+            Instantiate(fireEffect, position, transform.rotation);
         }
-        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 2)
+        if (itemID == 2)//Heal player 3 health
         {
-            newItem = Instantiate(itemTwo, new Vector3(0, 0, 0), Quaternion.identity);
-            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("Hpot").transform, false);
+            healthScript.Heal();
+            healthScript.UpdateHealthText();
         }
-        if (ButtonRef.GetComponent<ShopButtonInfo>().itemID == 3)
+        if (itemID == 3)//Freeze all enemies in place for a certain amount of time
         {
-            newItem = Instantiate(itemThree, new Vector3(0, 0, 0), Quaternion.identity);
-            newItem.transform.SetParent(GameObject.FindGameObjectWithTag("Frostbane").transform, false);
+
         }
     }
+
 }

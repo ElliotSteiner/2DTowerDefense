@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5754384596609085542}
   - component: {fileID: 5188940867082131677}
   - component: {fileID: 7226986061904816999}
-  - component: {fileID: 8051392773948938130}
   - component: {fileID: 2388229887722531164}
+  - component: {fileID: 2661310815135678896}
   m_Layer: 5
   m_Name: FireSpiritDraggable
   m_TagString: FireSpirit
@@ -78,26 +78,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8051392773948938130
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663339996514867051}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d34b09486934dce41a3b9a58de49d27d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2388229887722531164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,5 +91,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 1
-  itemQuantity: 0
   inventoryManager: {fileID: 0}
+  fireEffect: {fileID: 5528484051279429969, guid: 2f4f61150f01add4496a47b15332338a, type: 3}
+  fireOrbScript: {fileID: -6972526955468914591, guid: 2f4f61150f01add4496a47b15332338a, type: 3}
+--- !u!58 &2661310815135678896
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663339996514867051}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.0820312}
+  serializedVersion: 2
+  m_Radius: 178.05243
