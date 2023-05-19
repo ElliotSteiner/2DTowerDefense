@@ -107,6 +107,9 @@ MonoBehaviour:
   hurtFactor: 3
   isMinor: 0
   isMedium: 1
+  isHealer: 0
+  isShielder: 0
+  isSpeeder: 1
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0

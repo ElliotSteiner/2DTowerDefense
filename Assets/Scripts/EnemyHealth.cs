@@ -43,7 +43,14 @@ using System;
     }
 
         
-
+        public void Heal(float amount)
+    {
+        health += amount;
+        if(health > healthMax)
+        {
+            health = healthMax;
+        }
+    }
         public void SetHealthMax(int healthMax, bool fullHealth)
         {
         this.healthMax = healthMax;

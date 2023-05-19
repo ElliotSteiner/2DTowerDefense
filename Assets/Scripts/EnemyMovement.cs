@@ -19,6 +19,9 @@ public class EnemyMovement : MonoBehaviour
 
     public bool isMinor;
     public bool isMedium;
+    public bool isHealer;
+    public bool isShielder;
+    public bool isSpeeder;
 
     public EnemyDeath enemyDeathScript;
 
@@ -38,6 +41,8 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
+
+    public static List<EnemyMovement> closeEnemies = new List<EnemyMovement>();
 
     public static EnemyMovement GetClosestEnemy(Vector3 position, float maxRange)
     {
@@ -67,6 +72,19 @@ public class EnemyMovement : MonoBehaviour
         return closest;
     }
 
+    public static void GetNearEnemies(Vector3 position, float maxRange)
+    {
+        
+
+        foreach (EnemyMovement enemy in enemyList)
+        {
+            if (enemy.IsDead() || enemy == null) continue;
+            if(Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
+            {
+                closeEnemies.Add(enemy);
+            }
+        }
+    }
 
     public enum EnemyType
     {
@@ -214,7 +232,25 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-       
+        if (isHealer)
+        {
+            GetNearEnemies(transform.position, 1f);
+            foreach(EnemyMovement enemy in closeEnemies)
+            {
+                healthSystem.Heal(enemy.GetHealth / 20);
+            }
+        }
+
+        if (isShielder)
+        {
+
+        }
+
+        if (isSpeeder)
+        {
+
+        }
+
 
         transform.position = Vector2.MoveTowards(transform.position, wpoints.waypoints[waypointIndex].position, enemySpeed * Time.deltaTime);
 

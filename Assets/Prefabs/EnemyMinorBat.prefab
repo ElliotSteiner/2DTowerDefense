@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66ae90ee31357b54fb2597355f4a7c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  goldAmount: 50
+  maxHealth: 25
+  goldAmount: 25
   hurtFactor: 1
   isMinor: 1
   isMedium: 0
