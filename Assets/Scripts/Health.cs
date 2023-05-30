@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
         Debug.Log(currentHealth);
             if (currentHealth <= 0) {
             currentHealth = 0;
+            FindObjectOfType<AudioManager>().Play("LevelFail");
             SceneManager.LoadScene(sceneBuildIndex: 3);
              }
     }
