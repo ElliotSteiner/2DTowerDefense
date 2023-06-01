@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private HealthBar healthBar;
     private Tower tower;
     private float enemySpeed;
+    
 
     public bool isMinor;
     public bool isMedium;
@@ -31,15 +32,18 @@ public class EnemyMovement : MonoBehaviour
     private bool gaveMoney;
 
     public int enemyHealth;
-
+    private float healTimer = 10f;
+    private float hasteTimer = 10f;
+    private float shieldTimer = 10f;
+    private float speedCountdown = 5f;
 
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
+        //Debug.Log(healthBar);
         wpoints = GameObject.FindGameObjectWithTag("Waypoints").GetComponent<Waypoints>();
         enemyHealth = maxHealth;
-        Debug.Log("Health when movement script starts: " + enemyHealth);
+        //Debug.Log("Health when movement script starts: " + enemyHealth);
     }
 
     public static List<EnemyMovement> enemyList = new List<EnemyMovement>();
@@ -54,6 +58,7 @@ public class EnemyMovement : MonoBehaviour
         {
 
             if (enemy.IsDead() || enemy == null) continue;
+                    
             if (Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
                 //Debug.Log("IN RANGE");
@@ -76,17 +81,21 @@ public class EnemyMovement : MonoBehaviour
 
     public static void GetNearEnemies(Vector3 position, float maxRange)
     {
-        
 
+        
         foreach (EnemyMovement enemy in enemyList)
         {
             if (enemy.IsDead() || enemy == null) continue;
             if(Vector3.Distance(position, enemy.GetPosition()) <= maxRange)
             {
                 closeEnemies.Add(enemy);
+                //Debug.Log(closeEnemies);
             }
         }
+        
     }
+
+   
 
     public enum EnemyType
     {
@@ -170,16 +179,16 @@ public class EnemyMovement : MonoBehaviour
 
     public void Damage(float damageAmount, float reducedSpeed)
     {
-        Debug.Log("Health when damage is called: " + enemyHealth);
+        //Debug.Log("Health when damage is called: " + enemyHealth);
         healthSystem.Damage(damageAmount, enemyHealth);
         enemyHealth = (int)healthSystem.GetHealth();
-        Debug.Log("Health after damage is done and code comes back to movement script:" + enemyHealth);
-        Debug.Log("If code tries to calculate for Healthbar: " + healthSystem.GetHealthPercent());
+        //Debug.Log("Health after damage is done and code comes back to movement script:" + enemyHealth);
+        //Debug.Log("If code tries to calculate for Healthbar: " + healthSystem.GetHealthPercent());
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
-        Debug.Log(healthBar);
+        //Debug.Log(healthBar);
   
         healthBar.SetSize(healthSystem.GetHealthPercent());
-        Debug.Log(healthBar);
+        //Debug.Log(healthBar);
         if (reducedSpeed < 1)
         {
             //enemySpeed = speed * reducedSpeed;
@@ -233,19 +242,74 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private void Healer()
+    {
+       
+            //Debug.Log("HEALER");
+            GetNearEnemies(transform.position, 5f);
 
+            foreach (EnemyMovement enemy in closeEnemies)
+            {
+            if (enemy.IsDead() || enemy == null) continue;
+               // Debug.Log(enemy);
+            //healthSystem.Heal(enemy.enemyHealth / 2);
+            //Debug.Log("ENEMYHEALTH: " + enemy.enemyHealth);
+            
+            enemy.Heal(enemy.healthSystem.GetHealth() / 8);
+            Debug.Log("HEALED");
+            }
+    }
 
+   private void Heal(float healAmount)
+    {
+        if (IsDead())
+        {
+            Destroy(gameObject);
+        }
+
+        healthSystem.Heal(healAmount, enemyHealth);
+        enemyHealth = (int)healthSystem.GetHealth();
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        healthBar.SetSize(healthSystem.GetHealthPercent());
+    }
+
+    private void Speeder()
+    {
+        GetNearEnemies(transform.position, 5f);
+
+        foreach(EnemyMovement enemy in closeEnemies)
+        {
+            if (enemy.IsDead() || enemy == null) continue;
+
+            enemy.enemySpeed = enemy.speed * 1.5f;
+            if(speedCountdown > 0)
+            {
+                speedCountdown -= Time.deltaTime;
+            }
+            if(speedCountdown <= 0)
+            {
+                enemy.enemySpeed = enemy.speed;
+            }
+        }
+    }
     
 
     void Update()
     {
         if (isHealer)
         {
-            GetNearEnemies(transform.position, 1f);
-            foreach(EnemyMovement enemy in closeEnemies)
+           
+            if(healTimer > 0)
             {
-                healthSystem.Heal(enemy.GetHealth / 20);
+                healTimer -= Time.deltaTime;
+                //Debug.Log("TIMER " + timer);
             }
+            if (healTimer <= 0)
+            {
+                healTimer = 10f;
+                Healer();
+            }
+            
         }
 
         if (isShielder)
@@ -255,7 +319,15 @@ public class EnemyMovement : MonoBehaviour
 
         if (isSpeeder)
         {
-
+            if(hasteTimer > 0)
+            {
+                hasteTimer -= Time.deltaTime;
+            }
+            if(hasteTimer <= 0)
+            {
+                hasteTimer = 10f;
+                Speeder();
+            }
         }
 
 

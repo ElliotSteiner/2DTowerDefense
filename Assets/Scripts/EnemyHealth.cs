@@ -19,7 +19,7 @@ using System;
         {
             this.healthMax = healthMax;
             health = healthMax;
-        Debug.Log("Health when variables are set in health script: " + health);
+       // Debug.Log("Health when variables are set in health script: " + health);
         }
 
         public float GetHealth()
@@ -36,9 +36,9 @@ using System;
         public void Damage(float damage, int enemyHealth)
         {
         health = (float)enemyHealth;
-        Debug.Log("Health before damage is dealt and I set it equal to other script: " + health);
+        //Debug.Log("Health before damage is dealt and I set it equal to other script: " + health);
         health -= damage;
-        Debug.Log("Health after damage: " + health);
+       // Debug.Log("Health after damage: " + health);
             if (health < 0)
             {
                 health = 0;
@@ -46,10 +46,10 @@ using System;
     }
 
         
-        public void Heal(float amount)
+        public void Heal(float amount, int enemyHealth)
     {
         health += amount;
-        if(health > healthMax)
+        if(health >= healthMax)
         {
             health = healthMax;
         }
@@ -58,7 +58,7 @@ using System;
         {
         this.healthMax = healthMax;
             if (fullHealth) health = healthMax;
-        Debug.Log("Health is set to: " + health);
+        //Debug.Log("Health is set to: " + health);
         }
 
         public bool IsDead()
@@ -68,10 +68,10 @@ using System;
 
         public float GetHealthPercent()
         {
-        Debug.Log("Health before health bar calculations: " + health);
-        Debug.Log("Max health at that time: " + healthMax);
+        //Debug.Log("Health before health bar calculations: " + health);
+       // Debug.Log("Max health at that time: " + healthMax);
         //SetHealthMax(enemyMovement.maxHealth, false);
-        Debug.Log("Max health after I try to manually fix it: " + healthMax);
+       // Debug.Log("Max health after I try to manually fix it: " + healthMax);
         return (float)health / healthMax;
         }
     }

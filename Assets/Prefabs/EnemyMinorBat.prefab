@@ -107,10 +107,13 @@ MonoBehaviour:
   hurtFactor: 1
   isMinor: 1
   isMedium: 0
+  isHealer: 0
+  isShielder: 0
+  isSpeeder: 0
   enemyDeathScript: {fileID: 0}
   loopDuration: 10
   enemyHealth: 0
-  speed: 3
+  speed: 2
   healthSystem: {fileID: 0}
 --- !u!61 &7042926129845492329
 BoxCollider2D:

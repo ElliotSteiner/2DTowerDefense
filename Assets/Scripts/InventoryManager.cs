@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     public DraggableItem draggableItem;
     public GameObject eventSystem;
 
+    private EnemyMovement EnemyMovement;
+
     public GameObject itemOne;
     public TMP_Text textOne;
 
@@ -31,6 +33,8 @@ public class InventoryManager : MonoBehaviour
 
     public void Start()
     {
+
+        EnemyMovement = GetComponent<EnemyMovement>();
         //Shop item ID's
         shopItems[1, 1] = 1; //fire spirit
         shopItems[1, 2] = 2; //heatlh pot
@@ -110,8 +114,11 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemID == 3)//Freeze all enemies in place for a certain amount of time
         {
-
+            
+            
         }
     }
+
+   
 
 }
