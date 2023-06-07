@@ -17,7 +17,8 @@ using Random = System.Random;
     
     public void GiveMoney(int gold)
         {
-        
+        //should play enemy death sound effect. just put it here to see if it would work.
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
             money += gold;
             Debug.Log(money + " " + gold);
             //if (gameObject.isMinor)

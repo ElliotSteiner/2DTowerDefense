@@ -145,6 +145,7 @@ namespace Utils
 
             if (nextWave + 1 > waves.Length - 1)
             {
+                FindObjectOfType<AudioManager>().Play("LevelWin");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 EnemyDeath.money = 500;
             }
@@ -172,11 +173,12 @@ namespace Utils
 
         IEnumerator SpawnWave(Wave _wave)
         {
-            Debug.Log("Spawning Wave: " + _wave.name);
+            //Debug.Log("Spawning Wave: " + _wave.name);
             state = SpawnState.SPAWNING;
             for (int i = 0; i < _wave.count; i++)
             {
                 SpawnEnemy(_wave.enemy);
+                FindObjectOfType<AudioManager>().Play("EnemySpawn");
                 yield return new WaitForSeconds(1f / _wave.rate);
             }
             if (_wave.enemy2 != null)
@@ -200,14 +202,14 @@ namespace Utils
 
         void SpawnEnemy(Transform _enemy)
         {
-            Debug.Log("Spawning Enemy: " + _enemy.name);
+            //Debug.Log("Spawning Enemy: " + _enemy.name);
             Transform _sp = spawnPointOne;
             Instantiate(_enemy, _sp.position, _sp.rotation);
         }
 
         void SpawnEnemy2(Transform _enemy)
         {
-            Debug.Log("Spawning Enemy: " + _enemy.name);
+           // Debug.Log("Spawning Enemy: " + _enemy.name);
             Transform _sp = spawnPointOne;
             Instantiate(_enemy, _sp.position, _sp.rotation);
         }

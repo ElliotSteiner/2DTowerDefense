@@ -13114,9 +13114,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.40161, y: 650.50195}
+  m_AnchoredPosition: {x: 15.606995, y: 664.85547}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.6179175, y: 1.1023166}
+  m_Pivot: {x: 0.60812867, y: 1.1156069}
 --- !u!114 &1247881168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16500,6 +16500,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - name: Wave 8
+    enemy: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
+    count: 4
+    rate: 0.5
+    enemy2: {fileID: 8500427598014566287, guid: be141da92e576e647995b62e1d8d095c, type: 3}
+    count2: 1
+    rate2: 0.5
+    enemy3: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
+    count3: 4
+    rate3: 0.5
   - name: Wave 1
     enemy: {fileID: 7042926129845492330, guid: 367df3b9da03eab4fbe8fc10c03f9266, type: 3}
     count: 10

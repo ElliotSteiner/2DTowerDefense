@@ -43,10 +43,10 @@ using System;
     }
 
         
-        public void Heal(float amount)
+        public void Heal(float amount, int enemyHealth)
     {
         health += amount;
-        if(health > healthMax)
+        if(health >= healthMax)
         {
             health = healthMax;
         }
