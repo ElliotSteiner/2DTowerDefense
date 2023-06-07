@@ -237,7 +237,7 @@ public class EnemyMovement : MonoBehaviour
             GetNearEnemies(transform.position, 1f);
             foreach(EnemyMovement enemy in closeEnemies)
             {
-                healthSystem.Heal(enemy.GetHealth / 20);
+               // healthSystem.Heal(enemy.GetHealth / 20);
             }
         }
 

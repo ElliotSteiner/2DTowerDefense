@@ -8,8 +8,6 @@ using Utils;
 
 public class InventoryManager : MonoBehaviour
 {
-    public WaveSpawner waveSpawner;
-    public EnemyMovement enemyMovement;
     public GameObject eventSystem;
 
     public GameObject itemOne;
@@ -19,10 +17,13 @@ public class InventoryManager : MonoBehaviour
     public GameObject itemThree;
     public TMP_Text textThree;
 
-    public Health healthScript;
+    public HeartIconPulse heartIconPulse;
 
     public GameObject fireEffect;
     public FireOrb fireOrbScript;
+
+    public GameObject blizzard;
+
 
     //The size of this array is just for extra storage. Many of those slots are empty
     public int[,] shopItems = new int[6, 6];
@@ -102,36 +103,51 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemID == 2)//Heal player 3 health
         {
-            healthScript.Heal();
-            healthScript.UpdateHealthText();
+            int amountToHeal = 3;
+
+            for (int i = 0; i < amountToHeal; i++)
+            {
+                heartIconPulse.Pulse();
+            }
         }
         if (itemID == 3)//Freeze all enemies in place for a certain amount of time
         {
+            Instantiate(blizzard, new Vector3(0, 0, 0), transform.rotation);
             StartCoroutine(Freeze());
         }
     }
 
     IEnumerator Freeze()
     {
-        //put something here to make enemies stop spawning (rate)
-        yield return new WaitForSeconds(0.5f);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
+        //Start slowing
         for (int i = 10; i > 0; i--)
         {
             yield return new WaitForSeconds(0.5f);
-            enemyMovement.Damage(0, (float)(0.1 * i));
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().Damage(1, (float)(0.1 * i));
+            }
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
         }
 
-        enemyMovement.Damage(0, 0);
+        //Freeze them
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyMovement>().Damage(5, 0);
+        }
         yield return new WaitForSeconds(4f);
-        enemyMovement.Damage(0, 0);
 
+        //Speed them back to normal
         for (int i = 0; i < 10; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            enemyMovement.Damage(0, (float)(0.1 * i));
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().Damage(0, (float)(0.1 * i));
+            }
         }
-        //put something here to make enemies start spawning again (rate)
     }
 
 }

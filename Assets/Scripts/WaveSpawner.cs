@@ -38,6 +38,7 @@ namespace Utils
 
         public Wave[] waves;
         private int nextWave = 0;
+        public int thisWave = 0;
 
        
 
@@ -150,6 +151,7 @@ namespace Utils
             else
             {
                 nextWave++;
+                thisWave++;
             }
         }
 

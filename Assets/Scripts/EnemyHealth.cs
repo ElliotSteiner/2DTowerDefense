@@ -64,10 +64,6 @@ using System;
 
         public float GetHealthPercent()
         {
-        Debug.Log("Health before health bar calculations: " + health);
-        Debug.Log("Max health at that time: " + healthMax);
-        //SetHealthMax(enemyMovement.maxHealth, false);
-        Debug.Log("Max health after I try to manually fix it: " + healthMax);
         return (float)health / healthMax;
         }
     }

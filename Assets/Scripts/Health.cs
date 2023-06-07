@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
 
         
         healthSystem = collision.gameObject.GetComponent<EnemyMovement>();
-        Debug.Log(healthSystem);
+        //Debug.Log(healthSystem);
         // Debug.Log(healthSystem.enemyHealth);
 
         TakeDamage(healthSystem.hurtFactor);
@@ -69,6 +69,6 @@ public class Health : MonoBehaviour
 
     public void Heal()
     {
-        currentHealth += 3;
+        currentHealth += 1;
     }
 }

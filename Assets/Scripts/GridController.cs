@@ -46,7 +46,7 @@ namespace Utils
            
 
             Vector3Int mousePos = GetMousePosition();
-            Debug.Log(mousePos);
+            //Debug.Log(mousePos);
 
 
             if (!mousePos.Equals(previousMousePos))
