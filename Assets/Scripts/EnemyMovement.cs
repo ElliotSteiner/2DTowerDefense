@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
     public bool isHealer;
     public bool isShielder;
     public bool isSpeeder;
+    private bool isFull;
 
     public EnemyDeath enemyDeathScript;
 
@@ -292,6 +293,46 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
+
+    private void Shield()
+    {
+        
+        if (IsDead())
+        {
+            Destroy(gameObject);
+        }
+        if (healthSystem.GetHealth() == healthSystem.GetMaxHealth()) 
+        {
+            isFull = true;
+        }
+        else
+        {
+            isFull = false;
+        }
+        healthSystem.SetHealthMax((int)(maxHealth * 1.2f), isFull);
+        healthSystem.Heal(healthSystem.GetMaxHealth() / 10, enemyHealth);
+        enemyHealth = (int)healthSystem.GetHealth();
+        
+        Debug.Log("MAX: " + healthSystem.GetMaxHealth());
+        healthBar = gameObject.GetComponentInChildren<HealthBar>();
+        healthBar.SetSize(healthSystem.GetHealthPercent());
+    }
+
+    private void Shielder()
+    {
+        GetNearEnemies(transform.position, 5f);
+
+        foreach (EnemyMovement enemy in closeEnemies)
+        {
+            if (enemy.IsDead() || enemy == null) continue;
+            // Debug.Log(enemy);
+            //healthSystem.Heal(enemy.enemyHealth / 2);
+            //Debug.Log("ENEMYHEALTH: " + enemy.enemyHealth);
+            enemy.Shield();
+            //enemy.Heal(enemy.healthSystem.GetHealth() / 8);
+            Debug.Log("HEALED");
+        }
+    }
     
 
     void Update()
@@ -306,7 +347,7 @@ public class EnemyMovement : MonoBehaviour
             }
             if (healTimer <= 0)
             {
-                healTimer = 10f;
+                healTimer = 7f;
                 Healer();
             }
             
@@ -314,7 +355,15 @@ public class EnemyMovement : MonoBehaviour
 
         if (isShielder)
         {
-
+            if (shieldTimer > 0)
+            {
+                shieldTimer -= Time.deltaTime;
+            }
+            if (shieldTimer <= 0)
+            {
+                shieldTimer = 10f;
+                Shielder();
+            }
         }
 
         if (isSpeeder)

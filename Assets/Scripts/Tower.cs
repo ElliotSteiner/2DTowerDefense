@@ -156,8 +156,8 @@ public class Tower : MonoBehaviour
         ogSpeed = shootTimerMax;
         trueRange = 0f;
         trueSpeed = 0f;
-        rangeIncrease = 0.5f;
-        speedIncrease = 0.5f;
+        rangeIncrease = 0.1f;
+        speedIncrease = 0.1f;
         if (!isLookout)
         {
             towerList.Add(this);
@@ -275,7 +275,7 @@ public class Tower : MonoBehaviour
             if (isLookout)
             {
                 rangeIncrease = 1f;
-                speedIncrease = 1f;
+                speedIncrease = .25f;
             }
             UpgradeOverlay.HideButton();
             enemyDeathScript.LoseMoney(1000);
@@ -292,7 +292,7 @@ public class Tower : MonoBehaviour
             if (isLookout)
             {
                 rangeIncrease = 0.75f;
-                speedIncrease = 0.75f;
+                speedIncrease = 0.5f;
             }
             
         }

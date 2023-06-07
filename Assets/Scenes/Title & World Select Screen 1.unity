@@ -1930,13 +1930,13 @@ MonoBehaviour:
   - name: EnemySpawn
     clip: {fileID: 8300000, guid: 298646810d6caf5438a86986b554b82e, type: 3}
     volume: 0.4
-    pitch: 0
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyDeath
     clip: {fileID: 8300000, guid: b55dfeba0c9009943b84c52ac95cd23d, type: 3}
     volume: 0.4
-    pitch: 0
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ClickUI

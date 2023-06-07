@@ -4981,6 +4981,7 @@ GameObject:
   - component: {fileID: 134591447}
   - component: {fileID: 134591446}
   - component: {fileID: 134591445}
+  - component: {fileID: 134591450}
   m_Layer: 8
   m_Name: ShopButton
   m_TagString: Untagged
@@ -5117,6 +5118,20 @@ RectTransform:
   m_AnchoredPosition: {x: 922, y: 317}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &134591450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134591444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: <align="center">Item Shop
+  header: 
 --- !u!224 &162743583 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7291950017071611907, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
@@ -10862,6 +10877,7 @@ GameObject:
   - component: {fileID: 793982422}
   - component: {fileID: 793982421}
   - component: {fileID: 793982420}
+  - component: {fileID: 793982424}
   m_Layer: 5
   m_Name: InventoryButton
   m_TagString: Untagged
@@ -11032,6 +11048,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793982418}
   m_CullTransparentMesh: 1
+--- !u!114 &793982424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793982418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: <align="center">Item Inventory
+  header: 
 --- !u!1 &796128963
 GameObject:
   m_ObjectHideFlags: 0
@@ -13115,9 +13145,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.606995, y: 664.85547}
+  m_AnchoredPosition: {x: 17.687866, y: 662.77454}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.60812867, y: 1.1156069}
+  m_Pivot: {x: 0.60921246, y: 1.1136801}
 --- !u!114 &1247881168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13672,7 +13702,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1121983756}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -13681,7 +13711,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 90
   m_TargetDisplay: 0
 --- !u!224 &1275761694
 RectTransform:
@@ -15537,6 +15567,7 @@ GameObject:
   - component: {fileID: 1521252485}
   - component: {fileID: 1521252484}
   - component: {fileID: 1521252483}
+  - component: {fileID: 1521252486}
   m_Layer: 8
   m_Name: OpenMenuButton
   m_TagString: Untagged
@@ -15671,6 +15702,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521252481}
   m_CullTransparentMesh: 1
+--- !u!114 &1521252486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521252481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: <align="center">Build Towers
+  header: 
 --- !u!1 &1526978819
 GameObject:
   m_ObjectHideFlags: 0
@@ -16501,16 +16546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 8
-    enemy: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
-    count: 4
-    rate: 0.5
-    enemy2: {fileID: 8500427598014566287, guid: be141da92e576e647995b62e1d8d095c, type: 3}
-    count2: 1
-    rate2: 0.5
-    enemy3: {fileID: 8500427598014566287, guid: b4b8d7c6b1c73e649a4f184e0c7cc98b, type: 3}
-    count3: 4
-    rate3: 0.5
   - name: Wave 1
     enemy: {fileID: 7042926129845492330, guid: 367df3b9da03eab4fbe8fc10c03f9266, type: 3}
     count: 10
@@ -16520,7 +16555,7 @@ MonoBehaviour:
     rate2: 0.5
     enemy3: {fileID: 7042926129845492330, guid: 367df3b9da03eab4fbe8fc10c03f9266, type: 3}
     count3: 5
-    rate3: 2
+    rate3: 0.5
   - name: Wave 2
     enemy: {fileID: 7042926129845492330, guid: f51456e82a0b4394397409c1332457b9, type: 3}
     count: 15
@@ -18352,6 +18387,7 @@ GameObject:
   - component: {fileID: 1856445468}
   - component: {fileID: 1856445467}
   - component: {fileID: 1856445466}
+  - component: {fileID: 1856445469}
   m_Layer: 5
   m_Name: TimerButton
   m_TagString: Untagged
@@ -18474,6 +18510,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856445464}
   m_CullTransparentMesh: 1
+--- !u!114 &1856445469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856445464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effdf814eda337042bbdcf51ddee84ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  content: <align="center">Start Next Wave
+  header: 
 --- !u!1 &1861366584
 GameObject:
   m_ObjectHideFlags: 0
