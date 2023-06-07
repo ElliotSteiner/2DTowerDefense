@@ -38,6 +38,7 @@ namespace Utils
 
         public Wave[] waves;
         private int nextWave = 0;
+        public int thisWave = 0;
 
        
 
@@ -92,9 +93,6 @@ namespace Utils
         {
             //enemyList.Add(this);
         }
-
-        
-
 
         void Update()
         {
@@ -154,6 +152,7 @@ namespace Utils
             else
             {
                 nextWave++;
+                thisWave++;
             }
         }
 
@@ -221,9 +220,6 @@ namespace Utils
             newWaveTimer.text = " ";
             shopTimer.text = " ";
         }
-
-
-        
 
     }
 }

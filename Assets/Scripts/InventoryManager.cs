@@ -4,28 +4,28 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Utils;
 
 public class InventoryManager : MonoBehaviour
 {
-    public float coins;
-    public DraggableItem draggableItem;
     public GameObject eventSystem;
 
     private EnemyMovement EnemyMovement;
 
     public GameObject itemOne;
     public TMP_Text textOne;
-
     public GameObject itemTwo;
     public TMP_Text textTwo;
-    
     public GameObject itemThree;
     public TMP_Text textThree;
 
-    public Health healthScript;
+    public HeartIconPulse heartIconPulse;
 
     public GameObject fireEffect;
     public FireOrb fireOrbScript;
+
+    public GameObject blizzard;
+
 
     //The size of this array is just for extra storage. Many of those slots are empty
     public int[,] shopItems = new int[6, 6];
@@ -88,8 +88,6 @@ public class InventoryManager : MonoBehaviour
 
     public void Purchase()
     {
-        coins = EnemyDeath.money;
-
         GameObject ButtonRef = EventSystem.current.currentSelectedGameObject;
 
         if (EnemyDeath.gems >= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID])
@@ -109,13 +107,50 @@ public class InventoryManager : MonoBehaviour
         }
         if (itemID == 2)//Heal player 3 health
         {
-            healthScript.Heal();
-            healthScript.UpdateHealthText();
+            int amountToHeal = 3;
+
+            for (int i = 0; i < amountToHeal; i++)
+            {
+                heartIconPulse.Pulse();
+            }
         }
         if (itemID == 3)//Freeze all enemies in place for a certain amount of time
         {
-            
-            
+            Instantiate(blizzard, new Vector3(0, 0, 0), transform.rotation);
+            StartCoroutine(Freeze());
+        }
+    }
+
+    IEnumerator Freeze()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        //Start slowing
+        for (int i = 10; i > 0; i--)
+        {
+            yield return new WaitForSeconds(0.5f);
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().Damage(1, (float)(0.1 * i));
+            }
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        }
+
+        //Freeze them
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyMovement>().Damage(5, 0);
+        }
+        yield return new WaitForSeconds(4f);
+
+        //Speed them back to normal
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<EnemyMovement>().Damage(0, (float)(0.1 * i));
+            }
         }
     }
 
