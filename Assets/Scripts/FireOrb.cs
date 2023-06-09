@@ -6,6 +6,8 @@ public class FireOrb : MonoBehaviour
 {
 
     public EnemyMovement enemyMovement;
+    public EnemyHealth enemy;
+    float twentyPercentOfHP;
 
     void Start()
     {
@@ -21,12 +23,27 @@ public class FireOrb : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collidedEnemy = collision.gameObject;
-        Debug.Log(collision.gameObject);
+    //    Debug.Log(collision.gameObject);
+
         if (collidedEnemy.tag == "Enemy")
         {
-            collidedEnemy.GetComponent<EnemyMovement>().Damage(5, 1);
-            Debug.Log(collision.gameObject);
-           //enemyMovement.Damage(5, 1);
+            twentyPercentOfHP = collidedEnemy.GetComponent<EnemyMovement>().maxHealth * 0.2f;
+           
+
+            StartCoroutine(Burn(collidedEnemy));
+           
         }
     }
+
+
+    IEnumerator Burn(GameObject collidedEnemy)
+    {
+
+        for (int i = 0; i < 25; i++)
+        {
+            collidedEnemy.GetComponent<EnemyMovement>().Damage(twentyPercentOfHP / 25, 1);
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
 }

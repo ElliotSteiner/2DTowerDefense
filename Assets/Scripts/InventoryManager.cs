@@ -12,14 +12,14 @@ public class InventoryManager : MonoBehaviour
 
     private EnemyMovement EnemyMovement;
 
+    public Health healthScript;
+
     public GameObject itemOne;
     public TMP_Text textOne;
     public GameObject itemTwo;
     public TMP_Text textTwo;
     public GameObject itemThree;
     public TMP_Text textThree;
-
-    public HeartIconPulse heartIconPulse;
 
     public GameObject fireEffect;
     public FireOrb fireOrbScript;
@@ -111,7 +111,7 @@ public class InventoryManager : MonoBehaviour
 
             for (int i = 0; i < amountToHeal; i++)
             {
-                heartIconPulse.Pulse();
+                healthScript.Heal();
             }
         }
         if (itemID == 3)//Freeze all enemies in place for a certain amount of time
@@ -153,7 +153,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-
-   
+ 
 
 }

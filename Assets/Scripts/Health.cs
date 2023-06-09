@@ -71,5 +71,7 @@ public class Health : MonoBehaviour
     public void Heal()
     {
         currentHealth += 1;
+        UpdateHealthText();
+        Debug.Log("Potato");
     }
 }

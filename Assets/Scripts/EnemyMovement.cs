@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool gaveMoney;
 
-    public int enemyHealth;
+    public float enemyHealth;
     private float healTimer = 10f;
     private float hasteTimer = 10f;
     private float shieldTimer = 10f;
@@ -179,7 +179,7 @@ public class EnemyMovement : MonoBehaviour
     public void Damage(float damageAmount, float reducedSpeed)
     {
         healthSystem.Damage(damageAmount, enemyHealth);
-        enemyHealth = (int)healthSystem.GetHealth();
+        enemyHealth = healthSystem.GetHealth();
         healthBar = gameObject.GetComponentInChildren<HealthBar>();
   
         healthBar.SetSize(healthSystem.GetHealthPercent());

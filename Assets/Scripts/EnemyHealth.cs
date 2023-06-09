@@ -32,7 +32,7 @@ using System;
         }
 
 
-        public void Damage(float damage, int enemyHealth)
+        public void Damage(float damage, float enemyHealth)
         {
         health = (float)enemyHealth;
         health -= damage;
@@ -43,7 +43,7 @@ using System;
     }
 
         
-        public void Heal(float amount, int enemyHealth)
+        public void Heal(float amount, float enemyHealth)
     {
         health += amount;
         if(health >= healthMax)

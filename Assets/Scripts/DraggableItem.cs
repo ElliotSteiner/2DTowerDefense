@@ -28,12 +28,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, Camera.main.ScreenToWorldPoint(Input.mousePosition).z + 10);
-      //  Debug.Log(position);
-        inventoryManager.ItemEffect(itemID, position);
-        position = transform.position;
-        transform.SetParent(parentAfterDrag);
+        if (inventoryManager.shopItems[3, itemID] > 0) 
+        {
+            position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, Camera.main.ScreenToWorldPoint(Input.mousePosition).z + 10);
+            inventoryManager.ItemEffect(itemID, position);
+            position = transform.position;
+            transform.SetParent(parentAfterDrag);
+            transform.position = startPoint;
+            inventoryManager.ItemUse(itemID);
+        }
         transform.position = startPoint;
-        inventoryManager.ItemUse(itemID);
     }
 }
