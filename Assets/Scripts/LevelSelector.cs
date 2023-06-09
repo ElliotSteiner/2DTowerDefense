@@ -9,17 +9,18 @@ public class LevelSelector : MonoBehaviour
    
 {
     public int level;
-
+    EnemyDeath enemyDeath;
     // Start is called before the first frame update
     void Start()
     {
-       
+        enemyDeath = new EnemyDeath();
     }
 
     public void OpenScene()
     {
         SceneManager.LoadScene("Level " + level.ToString());
         level++;
+        enemyDeath.StartMoney(300);
     }
 
 }

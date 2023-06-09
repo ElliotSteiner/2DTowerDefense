@@ -14,7 +14,7 @@ namespace Utils
     {
         EnemyHealth healthSystem;
 
-        
+        EnemyDeath enemyDeath;
 
 
         private enum SpawnState { SPAWNING, FIGHTING, COUNTING };
@@ -87,6 +87,7 @@ namespace Utils
             newWaveTimer.text = waveCountdown.ToString();
             shopTimer.text = waveCountdown.ToString();
             waveCountdown = timeBetweenWaves;
+            enemyDeath = new EnemyDeath();
         }
 
         private void Awake()
@@ -147,7 +148,7 @@ namespace Utils
             {
                 FindObjectOfType<AudioManager>().Play("LevelWin");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                EnemyDeath.money = 500;
+                enemyDeath.StartMoney(300);
             }
             else
             {
@@ -178,7 +179,6 @@ namespace Utils
             for (int i = 0; i < _wave.count; i++)
             {
                 SpawnEnemy(_wave.enemy);
-                FindObjectOfType<AudioManager>().Play("EnemySpawn");
                 yield return new WaitForSeconds(1f / _wave.rate);
             }
             if (_wave.enemy2 != null)

@@ -236,11 +236,12 @@ MonoBehaviour:
   enemyDeathScript: {fileID: 0}
   Upgrader: {fileID: 7291950017071611906, guid: b0f93bcd5e2f29d4fa6afda270042ff7, type: 3}
   tier: 0
-  damageAmount: 5
+  damageAmount: 10
   range: 5
   projectileMoveSpeed: 0
-  shootTimerMax: 1.2
+  shootTimerMax: 2.4
   reduceEnemySpeed: 1
+  boulderDamage: 0
   isBoulder: 0
   isLookout: 0
   isWizard: 0

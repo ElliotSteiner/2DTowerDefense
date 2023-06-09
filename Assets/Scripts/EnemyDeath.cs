@@ -8,13 +8,18 @@ using Random = System.Random;
 
     public class EnemyDeath : MonoBehaviour
     {
-        public static float money = 300;
-        public static float gems = 200; //For testing purposes
+    public static float money = 300;
+    public static float gems = 0; //For testing purposes
 
         Random rnd = new Random();
 
-
+    public void StartMoney(int gold)
+    {
+        money = 0;
+        money += gold;
+    }
     
+
     public void GiveMoney(int gold)
         {
         //should play enemy death sound effect. just put it here to see if it would work.
@@ -33,9 +38,9 @@ using Random = System.Random;
             //}
             int randNum = rnd.Next(1, 11);
             Debug.Log("Random #: " + randNum);
-            if (randNum < 8)
+            if (randNum < 3)
             {
-                gems += 100;
+                gems += 2;
                 Debug.Log("Gems: " + gems);
             }
         }

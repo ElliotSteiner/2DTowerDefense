@@ -75,7 +75,7 @@ public class Tower : MonoBehaviour
 
         foreach (Tower tower in towerList)
         {
-            
+            if (tower == null) continue;
 
 
             if (Vector3.Distance(position, tower.GetPosition()) <= maxRange)

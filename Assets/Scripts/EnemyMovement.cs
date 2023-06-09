@@ -335,8 +335,7 @@ public class EnemyMovement : MonoBehaviour
            
             if(healTimer > 0)
             {
-                healTimer -= Time.deltaTime;
-                //Debug.Log("TIMER " + timer);
+                //healthSystem.Heal(enemy.GetHealth / 20);
             }
             if (healTimer <= 0)
             {
