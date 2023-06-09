@@ -38,9 +38,9 @@ using Random = System.Random;
             //}
             int randNum = rnd.Next(1, 11);
             Debug.Log("Random #: " + randNum);
-            if (randNum < 8)
+            if (randNum < 3)
             {
-                gems += 100;
+                gems += 2;
                 Debug.Log("Gems: " + gems);
             }
         }
