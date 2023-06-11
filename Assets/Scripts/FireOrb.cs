@@ -41,6 +41,7 @@ public class FireOrb : MonoBehaviour
 
         for (int i = 0; i < 25; i++)
         {
+            if (collidedEnemy == null) continue;
             collidedEnemy.GetComponent<EnemyMovement>().Damage(twentyPercentOfHP / 25, 1);
             yield return new WaitForSeconds(0.2f);
         }

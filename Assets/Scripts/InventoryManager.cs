@@ -131,7 +131,7 @@ public class InventoryManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             foreach (GameObject enemy in enemies)
             {
-                if (enemy.GetComponent<EnemyMovement>().IsDead() || enemy == null) continue;
+                if (enemy == null) continue;
                 enemy.GetComponent<EnemyMovement>().Damage(1, (float)(0.1 * i));
             }
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
