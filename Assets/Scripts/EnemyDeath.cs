@@ -9,7 +9,7 @@ using Random = System.Random;
     public class EnemyDeath : MonoBehaviour
     {
     public static float money = 300;
-    public static float gems = 200; //For testing purposes
+    public static float gems = 0; //For testing purposes
 
         Random rnd = new Random();
 
@@ -40,7 +40,7 @@ using Random = System.Random;
             Debug.Log("Random #: " + randNum);
             if (randNum < 3)
             {
-                gems += 2;
+                gems += 5;
                 Debug.Log("Gems: " + gems);
             }
         }
